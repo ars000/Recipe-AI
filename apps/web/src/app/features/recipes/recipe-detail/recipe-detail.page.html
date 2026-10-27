@@ -1,0 +1,126 @@
+@if (recipe(); as detail) {
+  <app-page-hero
+    [heading]="recipe()!.title"
+    [coverImage]="detail.imageUrl"
+    [breadcrumbs]="[
+      { label: 'Главная', link: '/' },
+      { label: 'Рецепты', link: '/recipes' },
+      { label: recipe()!.title },
+    ]"
+  />
+
+  <div class="page-container recipe-detail__layout">
+    <article class="panel recipe-detail__main">
+      <div class="recipe-detail__meta">
+        <span>{{ durationLabel(detail) }}</span>
+        <span>{{ level(detail) }}</span>
+        @if (detail.servings) {
+          <span>{{ detail.servings }} порций</span>
+        }
+      </div>
+
+      @if (detail.description?.trim()) {
+        <section class="recipe-detail__intro" aria-label="Описание рецепта">
+          <p>{{ detail.description }}</p>
+        </section>
+      }
+
+      <h2 class="recipe-detail__heading">Как готовить</h2>
+      <ol class="recipe-detail__steps">
+        @for (step of instructionSteps(); track $index) {
+          <li>{{ step }}</li>
+        }
+      </ol>
+
+      <div class="recipe-detail__actions">
+        <button mat-flat-button color="primary" class="btn btn--accent" (click)="save()">
+          В избранное
+        </button>
+        @if (detail.sourceUrl) {
+          <a mat-button [href]="detail.sourceUrl" target="_blank" rel="noopener">Оригинал на сайте</a>
+        }
+      </div>
+    </article>
+
+    <aside class="recipe-detail__sidebar">
+      <div class="recipe-detail__widget">
+        <h4>Ингредиенты</h4>
+        <ul class="recipe-detail__ingredient-list">
+          @for (ri of ingredientRows(); track ri.ingredient.id) {
+            <li
+              class="recipe-detail__ingredient"
+              [class.recipe-detail__ingredient--missing]="ingredientMissing(ri)"
+              [class.recipe-detail__ingredient--optional]="ri.optional && !isToTaste(ri.unit)"
+            >
+              {{ ingredientLine(ri) }}
+            </li>
+          }
+        </ul>
+        @if (hasMissingIngredients()) {
+          <p class="recipe-detail__hint">
+            <span class="recipe-detail__hint-sample" aria-hidden="true">Пример</span>
+            — продукты, которых нет в наличии (не отмечены в холодильнике).
+          </p>
+          <p class="recipe-detail__hint recipe-detail__hint--muted">
+            В список покупок попадут только ингредиенты, которых сейчас нет дома.
+          </p>
+          <button
+            mat-stroked-button
+            class="btn btn--outline recipe-detail__shopping-btn"
+            type="button"
+            (click)="addToShopping()"
+          >
+            В список покупок
+          </button>
+        }
+      </div>
+      @if (displayTags(detail).length) {
+        <div class="recipe-detail__widget">
+          <h4>Теги</h4>
+          <div class="recipe-detail__tags">
+            @for (t of displayTags(detail); track t) {
+              <span class="recipe-detail__tag">{{ t }}</span>
+            }
+          </div>
+        </div>
+      }
+    </aside>
+  </div>
+}
+
+<ng-template #favoriteSavedSnack>
+  <div class="mat-mdc-simple-snack-bar">
+    <div matSnackBarLabel>
+      Сохранено в <span class="snack-bar__emphasis">избранное</span>
+    </div>
+    <div matSnackBarActions>
+      <button
+        mat-button
+        matSnackBarAction
+        type="button"
+        (click)="dismissOpenSnack()"
+      >
+        OK
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #shoppingAddedSnack>
+  <div class="mat-mdc-simple-snack-bar">
+    <div matSnackBarLabel>
+      Недостающие продукты добавлены в
+      <span class="snack-bar__emphasis">«Покупки»</span>
+    </div>
+    <div matSnackBarActions>
+      <button
+        mat-button
+        matSnackBarAction
+        type="button"
+        (click)="navigateFromShoppingSnack()"
+      >
+        Перейти
+      </button>
+    </div>
+  </div>
+</ng-template>

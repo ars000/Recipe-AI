@@ -1,0 +1,19 @@
+# systemd: скопируйте в /etc/systemd/system/recipe-api.service
+# sudo systemctl daemon-reload && sudo systemctl enable --now recipe-api
+
+[Unit]
+Description=Recipe AI Nest API
+After=network.target docker.service
+Wants=docker.service
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/recipe-ai/app/apps/api
+EnvironmentFile=/var/www/recipe-ai/app/apps/api/.env
+ExecStart=/usr/bin/node dist/main.js
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

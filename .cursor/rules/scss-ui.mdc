@@ -1,0 +1,47 @@
+---
+description: SCSS, BEM и design tokens в apps/web
+globs: apps/web/**/*.scss
+alwaysApply: false
+---
+
+# Стили web
+
+Источник истины — `apps/web/src/styles/` (см. `apps/web/README.md`).
+
+| Файл | Назначение |
+|------|------------|
+| `_variables.scss` | Цвета (`$…` + `var(--…)` на `:root`), тени, градиенты, шрифты |
+| `_breakpoints.scss` | `sm`–`xxl`, `$container-max-width`; `rem()`, `@include media("min"\|"max"\|"within", "lg")` |
+| `_material-theme.scss` | Тема Angular Material |
+| `_ui-patterns.scss` | Общий layout: hero, recipe-grid, category tiles, кнопки `.btn` |
+
+## Правила
+
+- **Компонент/страница:** стили только в `*.component.scss` / `*.page.scss`; не дублировать блоки из `_ui-patterns` — использовать те же классы в HTML.
+- **Подключение:** `@use '../../../styles/breakpoints' as *;` (путь от файла к `styles/`).
+- **Единицы длины:** только `rem(...)` (функция из `styles/_rem.scss`) или явные `px`. Не использовать `em`, `vh`, `vw`, `ch`, `%` для размеров/отступов (проценты в градиентах и `rgb(... / N%)` — исключение).
+- **Предпочтение:** типографика и отступы — `rem(24px)`; `px` — когда нужен пиксель-в-пиксель (тонкая линия `1px`, иногда borders).
+- **Цвета:** `var(--text-muted)`, `var(--accent)` и т.д. из variables; не хардкод hex в компонентах.
+- **BEM:** блок `recipe-card`, элемент `recipe-card__body`, модификатор `btn--accent`, `category-tile--products`.
+- **Порядок свойств в одном правиле** — сверху вниз по группам (пустая строка между группами по желанию, внутри группы — логичный порядок, например `flex-direction` перед `align-items`):
+
+  1. **Позиционирование** (влияние на окружение): `position`, `top`, `right`, `bottom`, `left`, `z-index`, `float`, `clear`
+  2. **Отображение и структура** (блочная модель): `display`, `flex-…`, `grid-…`, `visibility`
+  3. **Размеры и внешние границы:** `width`, `height`, `min-width`, `max-width`, `min-height`, `max-height`, `margin`, `padding`
+  4. **Визуальное оформление коробки** (декор): `background`, `border`, `border-radius`, `box-shadow`, `outline`, `opacity`
+  5. **Типографика** (оформление контента): `font-…`, `color`, `text-…`, `line-height`, `letter-spacing`, `white-space`
+  6. **Поведение и интерактив** (анимации и интерфейс): `transition`, `transform`, `animation`, `cursor`, `pointer-events`
+
+```scss
+// ✅ Локальный блок страницы
+.recipe-tag-filters {
+  &__head { … }
+  &__clear { … }
+}
+
+// ❌ Копировать весь .recipe-grid из _ui-patterns в page.scss
+// ✅ <div class="recipe-grid"> в шаблоне
+
+// ❌ margin-bottom: 1.5em; gap: 2vw; font-size: 0.875rem без rem()
+// ✅ margin-bottom: rem(24px); gap: rem(12px); border-width: 1px;
+```

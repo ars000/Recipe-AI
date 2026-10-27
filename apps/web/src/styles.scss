@@ -1,0 +1,49 @@
+@use "./styles/variables";
+@use "./styles/material-theme";
+@use "./styles/ui-patterns";
+@use "./styles/rem" as *;
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: var(--font-body);
+  color: var(--text);
+}
+
+h1,
+h2,
+h3,
+.page-title {
+  font-family: var(--font-display);
+}
+
+a {
+  color: var(--accent-dark);
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  padding: rem(48px);
+}
+
+@media print {
+  body.print-shopping-list .layout__header,
+  body.print-shopping-list .layout__footer,
+  body.print-shopping-list app-page-hero {
+    display: none !important;
+  }
+
+  body.print-shopping-list .layout__main {
+    padding: 0;
+  }
+}

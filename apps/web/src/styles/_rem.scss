@@ -1,0 +1,41 @@
+@use "sass:math";
+@use "sass:meta";
+@use "sass:list";
+
+/// База rem (должна совпадать с font-size на `html`).
+$rem-base: 16px !default;
+
+/// px → rem. Пример: `font-size: rem(24px);` → `1.5rem`
+@function rem($value, $base: $rem-base) {
+  @if meta.type-of($value) == "list" {
+    $result: ();
+
+    @each $item in $value {
+      $result: list.append($result, rem($item, $base));
+    }
+
+    @return $result;
+  }
+
+  @if meta.type-of($value) != "number" {
+    @error 'rem(): ожидается число, получено #{meta.type-of($value)}';
+  }
+
+  $unit: math.unit($value);
+
+  @if $unit == "rem" {
+    @return $value;
+  }
+
+  $px: null;
+
+  @if $unit == "px" {
+    $px: $value;
+  } @else if $unit == "" {
+    $px: $value * 1px;
+  } @else {
+    @error 'rem(): ожидаются px (или unitless как px), получено #{$value}';
+  }
+
+  @return math.div($px, $base) * 1rem;
+}

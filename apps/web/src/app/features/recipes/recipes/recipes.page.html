@@ -1,0 +1,65 @@
+<app-page-hero
+  heading="Сетка рецептов"
+  subtitle="Подбор по продуктам из вашего холодильника"
+  [breadcrumbs]="[
+    { label: 'Главная', link: '/' },
+    { label: 'Рецепты' },
+  ]"
+/>
+
+<div class="page-container">
+<div class="section-head">
+  <h2>Подходящие блюда</h2>
+  <a class="section-head__link" routerLink="/fridge">Изменить продукты →</a>
+</div>
+
+@if (loading()) {
+  <div class="loader"><mat-spinner /></div>
+} @else if (!recipes().length) {
+  <div class="panel panel--empty">
+    <p>Отметьте продукты в холодильнике, чтобы увидеть рецепты.</p>
+    <a routerLink="/fridge">Перейти к продуктам</a>
+  </div>
+} @else {
+  @if (availableTagFilters().length) {
+    <div class="recipe-tag-filters">
+      <div class="recipe-tag-filters__head">
+        <span>Фильтр по категориям</span>
+        @if (selectedTagKeys().length) {
+          <button type="button" class="recipe-tag-filters__clear" (click)="clearTagFilters()">
+            Сбросить
+          </button>
+        }
+      </div>
+      <div class="recipe-tag-filters__list">
+        @for (opt of availableTagFilters(); track opt.key) {
+          <button
+            type="button"
+            class="recipe-tag-filters__chip"
+            [class.recipe-tag-filters__chip--active]="isTagSelected(opt.key)"
+            (click)="toggleTag(opt.key)"
+          >
+            {{ opt.label }}
+            <span class="recipe-tag-filters__count">{{ opt.count }}</span>
+          </button>
+        }
+      </div>
+    </div>
+  }
+
+  @if (!filteredRecipes().length) {
+    <div class="panel panel--empty">
+      <p>Нет рецептов с выбранными категориями.</p>
+      <button type="button" class="recipe-tag-filters__clear" (click)="clearTagFilters()">
+        Сбросить фильтры
+      </button>
+    </div>
+  } @else {
+    <div class="recipe-grid">
+      @for (r of filteredRecipes(); track r.recipeId) {
+        <app-recipe-card [recipe]="toCard(r)" />
+      }
+    </div>
+  }
+}
+</div>

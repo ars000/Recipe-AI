@@ -1,0 +1,25 @@
+{
+  "name": "recipe-manager",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
+  "scripts": {
+    "web": "npm run build -w @recipe-manager/shared && npm run clean:vite -w @recipe-manager/web && npm run start -w @recipe-manager/web",
+    "api": "npm run build -w @recipe-manager/shared && npm run start:dev -w @recipe-manager/api",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "prisma:migrate": "npm run prisma:migrate -w @recipe-manager/api",
+    "prisma:seed": "npm run build -w @recipe-manager/shared && npm run prisma:seed -w @recipe-manager/api",
+    "seed": "npm run prisma:seed",
+    "recipes:decode-html": "npm run build -w @recipe-manager/shared && node apps/api/prisma/seeds/decode-recipe-html-entities.mjs",
+    "recipes:import": "node apps/api/prisma/seeds/import-recipes.mjs",
+    "recipes:repair-units": "node apps/api/prisma/seeds/repair-recipe-units.mjs",
+    "recipes:sync-source": "node apps/api/prisma/seeds/sync-recipes-from-source.mjs && npm run prisma:seed",
+    "db:sync-tags": "npm run build -w @recipe-manager/shared && node apps/api/prisma/seeds/assign-recipe-tags.mjs && npm run prisma:seed",
+    "db:sync-titles": "node apps/api/prisma/seeds/sync-recipe-titles.mjs && npm run prisma:seed",
+    "build": "npm run build -w @recipe-manager/shared && npm run build -w @recipe-manager/api && npm run build -w @recipe-manager/web",
+    "test:shared": "npm run test -w @recipe-manager/shared"
+  }
+}

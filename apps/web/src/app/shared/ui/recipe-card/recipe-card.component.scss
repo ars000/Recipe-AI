@@ -1,0 +1,58 @@
+@use '../../../../styles/breakpoints' as *;
+
+:host {
+  display: block;
+
+  height: 100%;
+}
+
+a.recipe-card {
+  height: 100%;
+
+  color: inherit;
+  text-decoration: none;
+}
+
+.recipe-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(6px);
+
+  margin-bottom: rem(8px);
+}
+
+.recipe-card__tag {
+  padding: rem(3px) rem(9px);
+
+  background: var(--accent-soft);
+  border-radius: 999px;
+
+  font-size: rem(11px);
+  font-weight: 600;
+  color: var(--accent-dark);
+  line-height: 1.3;
+}
+
+.recipe-card__products {
+  margin: 0 0 rem(10px);
+
+  font-size: rem(14px);
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.recipe-card__products-label {
+  margin-bottom: rem(2px);
+
+  font-weight: 700;
+}
+
+.recipe-card__products--missing {
+  color: var(--color-missing);
+}
+
+.recipe-card__products--ok {
+  color: var(--accent-dark);
+  font-weight: 600;
+  font-size: rem(14px);
+}

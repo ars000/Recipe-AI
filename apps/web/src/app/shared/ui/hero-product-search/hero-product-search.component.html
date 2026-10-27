@@ -1,0 +1,78 @@
+<div class="hero-search" role="search">
+  <mat-form-field appearance="outline" class="hero-search__field" subscriptSizing="dynamic">
+    <mat-label>Добавьте продукт из холодильника</mat-label>
+    <input
+      matInput
+      type="search"
+      [formControl]="query"
+      [matAutocomplete]="auto"
+      placeholder="Например: курица, помидоры…"
+      (keydown.enter)="pickFirst($event)"
+    />
+    <mat-autocomplete
+      #auto="matAutocomplete"
+      [autoActiveFirstOption]="true"
+      (optionSelected)="onPick($event.option.value)"
+    >
+      @if (queryText().trim().length >= 2 && !suggestions().length) {
+        <mat-option disabled>Ничего не найдено</mat-option>
+      } @else if (queryText().trim().length < 2) {
+        <mat-option disabled>Введите минимум 2 буквы</mat-option>
+      }
+      @for (item of suggestions(); track item.id) {
+        <mat-option [value]="item">{{ pantryLabel(item.nameRu) }}</mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+  <button
+    mat-flat-button
+    type="button"
+    class="btn btn--accent hero-search__submit"
+    [disabled]="syncing()"
+    (click)="goRecipes()"
+  >
+    Подобрать рецепты
+  </button>
+</div>
+
+@if (store.pickedIngredients().length) {
+  <div class="hero-search__selection" aria-label="Выбранные продукты">
+    <div class="hero-search__chips-row">
+      <div #chipsEl class="hero-search__chips hero-search__chips--collapsed">
+        @for (item of store.pickedIngredients(); track item.id) {
+          <span class="hero-search__chip">
+            {{ pantryLabel(item.nameRu) }}
+            @if (!store.isDefaultAtHome(item.id)) {
+              <button
+                type="button"
+                class="hero-search__chip-remove"
+                (click)="remove(item.id)"
+                [attr.aria-label]="'Убрать ' + pantryLabel(item.nameRu)"
+              >
+                ×
+              </button>
+            }
+          </span>
+        }
+      </div>
+      @if (chipsOverflow()) {
+        <a
+          routerLink="/fridge"
+          class="hero-search__chip hero-search__chip--more"
+          [attr.aria-label]="
+            hiddenChipCount() > 0
+              ? 'Перейти к продуктам, ещё ' + hiddenChipCount()
+              : 'Перейти к продуктам'
+          "
+        >
+          …@if (hiddenChipCount() > 0) {
+            <span class="hero-search__chip-more-count">ещё {{ hiddenChipCount() }}</span>
+          }
+        </a>
+      }
+    </div>
+    <div class="hero-search__selection-actions">
+      <button type="button" class="hero-search__clear" (click)="clearAll()">Очистить список</button>
+    </div>
+  </div>
+}

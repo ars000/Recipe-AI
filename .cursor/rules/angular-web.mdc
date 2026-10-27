@@ -1,0 +1,42 @@
+---
+description: Angular 18 — страницы, компоненты, состояние в apps/web
+globs: apps/web/**/*.{ts,html}
+alwaysApply: false
+---
+
+# Angular web
+
+## Структура
+
+- **Один компонент — одна папка:** каждый `@Component` (страница `*.page` или UI `*.component`) живёт в своей подпапке `kebab-case`; все его файлы — только внутри неё. **Исключение:** bootstrap — `app.component.*` в корне `src/app/` рядом с `app.config.ts`.
+- **Страницы:** `features/<feature>/<page-name>/<page-name>.page.ts|html|scss`, lazy `loadComponent` в `app.routes.ts`, класс `*Page`.
+- **Shared UI:** `shared/ui/<component-name>/<component-name>.component.*`, селектор `app-<component-name>`.
+- **Пример:** `shared/ui/recipe-card/recipe-card.component.ts`, `features/recipes/recipes/recipes.page.ts`.
+- **Core:** `core/` — `ApiService`, stores (`PantryStore`), `models`.
+- **Layout:** `layout/shell/shell.component` — оболочка с дочерними маршрутами.
+## Компоненты
+
+- Всегда `standalone: true`; зависимости явно в `imports`.
+- Шаблон и стили **отдельными файлами:** `templateUrl`, `styleUrl` (не inline).
+- DI: `inject()`, приватные зависимости — `private readonly`.
+- Входные данные в UI-компонентах: `input()` / `input.required()` (см. `recipe-card.component.ts`).
+
+## Состояние и шаблоны
+
+- Списки и загрузка: `signal`, производные — `computed`; async в `ngOnInit` / методах с `void this.load…()`.
+- API и pantry: `ApiService`, `PantryStore`; DTO web — `core/models`.
+- Маппинг рецептов для карточек/тегов: `shared/recipe-ui.utils.ts`; домен — `@recipe-manager/shared`.
+- В HTML — классы из `_ui-patterns` (`section-head`, `recipe-grid`, `btn btn--accent`) и BEM страницы (`page-home__actions`); переиспользуй `app-page-hero`, `app-recipe-card`, Material-модули по образцу соседних страниц.
+
+## ❌ / ✅
+
+```typescript
+// ❌ NgModule, constructor(private api: ApiService)
+// ✅ standalone + inject(ApiService)
+
+// ❌ inline template/styles у feature/page
+// ✅ templateUrl: './recipes.page.html', styleUrl: './recipes.page.scss'
+
+// ❌ shared/ui/recipe-card.component.ts рядом с другими .component без папки
+// ✅ shared/ui/recipe-card/recipe-card.component.ts (+ .html, .scss)
+```

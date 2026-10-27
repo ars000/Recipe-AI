@@ -1,0 +1,25 @@
+{
+  "name": "@recipe-manager/shared",
+  "version": "0.0.1",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./ingredient-catalog-match": {
+      "types": "./dist/ingredient-catalog-match.d.ts",
+      "default": "./dist/ingredient-catalog-match.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.2",
+    "vitest": "^2.1.0"
+  }
+}

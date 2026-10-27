@@ -1,0 +1,167 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String          @id @default(uuid())
+  email         String?         @unique
+  displayName   String?
+  createdAt     DateTime        @default(now())
+  pantryItems   PantryItem[]
+  savedRecipes  SavedRecipe[]
+  shoppingLists      ShoppingList[]
+  shoppingListShares ShoppingListShare[]
+  mealPlans          MealPlan[]
+}
+
+model Ingredient {
+  id                 String              @id @default(uuid())
+  slug               String              @unique
+  nameRu             String
+  category           String?
+  aliases            IngredientAlias[]
+  recipeIngredients  RecipeIngredient[]
+  pantryItems        PantryItem[]
+  shoppingListItems  ShoppingListItem[]
+}
+
+model IngredientAlias {
+  id           String     @id @default(uuid())
+  alias        String     @unique
+  ingredientId String
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id], onDelete: Cascade)
+}
+
+model Recipe {
+  id           String             @id @default(uuid())
+  title        String
+  description  String?
+  instructions Json
+  servings     Int?
+  prepMinutes  Int?
+  cookMinutes  Int?
+  imageUrl     String?
+  sourceUrl    String?
+  source       RecipeSource       @default(seed)
+  tags         String[]           @default([])
+  createdAt    DateTime           @default(now())
+  ingredients  RecipeIngredient[]
+  savedBy      SavedRecipe[]
+  mealPlans              MealPlan[]
+  shoppingListItemSources ShoppingListItemSource[]
+}
+
+enum RecipeSource {
+  seed
+  user
+  ai
+}
+
+model RecipeIngredient {
+  id           String     @id @default(uuid())
+  recipeId     String
+  ingredientId String
+  labelRu      String?
+  amount       Float?
+  unit         String?
+  optional     Boolean    @default(false)
+  group        String?
+  recipe       Recipe     @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
+
+  @@index([ingredientId])
+  @@index([recipeId])
+}
+
+model PantryItem {
+  id           String     @id @default(uuid())
+  userId       String
+  ingredientId String
+  quantity     Float?
+  expiresAt    DateTime?
+  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
+
+  @@unique([userId, ingredientId])
+  @@index([userId])
+}
+
+model SavedRecipe {
+  id        String   @id @default(uuid())
+  userId    String
+  recipeId  String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  recipe    Recipe   @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, recipeId])
+}
+
+model ShoppingList {
+  id        String             @id @default(uuid())
+  userId    String
+  name      String             @default("Список покупок")
+  createdAt DateTime           @default(now())
+  user      User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items     ShoppingListItem[]
+}
+
+model ShoppingListItem {
+  id             String                     @id @default(uuid())
+  listId         String
+  ingredientId   String?
+  customName     String?
+  amount         Float?
+  unit           String?
+  checked        Boolean                    @default(false)
+  list           ShoppingList               @relation(fields: [listId], references: [id], onDelete: Cascade)
+  ingredient     Ingredient?                @relation(fields: [ingredientId], references: [id])
+  sources        ShoppingListItemSource[]
+}
+
+model ShoppingListItemSource {
+  id       String           @id @default(uuid())
+  itemId   String
+  recipeId String
+  amount   Float?
+  unit     String?
+  item     ShoppingListItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  recipe   Recipe           @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
+  @@unique([itemId, recipeId])
+  @@index([recipeId])
+}
+
+model ShoppingListShare {
+  id        String   @id @default(uuid())
+  token     String   @unique
+  userId    String
+  payload   Json
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+enum MealType {
+  breakfast
+  lunch
+  dinner
+}
+
+model MealPlan {
+  id       String   @id @default(uuid())
+  userId   String
+  date     DateTime @db.Date
+  mealType MealType
+  recipeId String
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  recipe   Recipe   @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date, mealType])
+  @@index([userId, date])
+}

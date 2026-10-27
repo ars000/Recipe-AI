@@ -1,0 +1,78 @@
+@use "../../../../styles/breakpoints" as *;
+
+:host {
+  display: block;
+  padding-bottom: rem(88px);
+}
+
+.page-fridge {
+  &__panel {
+    padding: rem(20px) 0 rem(24px);
+    border: none;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  &__search {
+    display: block;
+    padding: 0;
+    margin-bottom: rem(8px);
+
+    ::ng-deep .mat-mdc-form-field-icon-suffix {
+      padding-right: rem(4px);
+    }
+  }
+
+  &__search-clear {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(32px);
+    height: rem(32px);
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: rem(22px);
+    line-height: 1;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--text);
+      background: color-mix(in srgb, var(--text-muted) 12%, transparent);
+    }
+  }
+
+  &__dock {
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    padding-bottom: env(safe-area-inset-bottom);
+    background: color-mix(in srgb, var(--surface) 92%, transparent);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid color-mix(in srgb, var(--text-muted) 18%, transparent);
+    box-shadow: 0 #{rem(-8px)} #{rem(24px)} rgba(0, 0, 0, 0.08);
+  }
+
+  &__dock-inner {
+    max-width: $container-max-width;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: rem(12px);
+    padding: rem(12px) rem(24px);
+  }
+
+  &__summary {
+    margin: 0;
+    flex: 1;
+    min-width: rem(140px);
+  }
+}

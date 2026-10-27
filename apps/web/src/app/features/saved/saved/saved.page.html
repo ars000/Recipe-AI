@@ -1,0 +1,22 @@
+<app-page-hero
+  heading="Избранное"
+  subtitle="Сохранённые рецепты — ваш личный архив"
+  [breadcrumbs]="[
+    { label: 'Главная', link: '/' },
+    { label: 'Избранное' },
+  ]"
+/>
+
+<div class="page-container">
+@if (loading()) {
+  <div class="loader"><mat-spinner /></div>
+} @else if (!recipes().length) {
+  <div class="panel panel--empty">Пока нет сохранённых рецептов.</div>
+} @else {
+  <div class="recipe-grid">
+    @for (r of recipes(); track r.id) {
+      <app-recipe-card [recipe]="toCard(r)" />
+    }
+  </div>
+}
+</div>

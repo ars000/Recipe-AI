@@ -1,0 +1,111 @@
+@use "../../../../styles/breakpoints" as *;
+
+.recipe-detail {
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(12px);
+    margin-bottom: rem(24px);
+
+    span {
+      padding: rem(6px) rem(14px);
+      background: var(--accent-soft);
+      border-radius: 999px;
+      font-size: rem(14px);
+      font-weight: 600;
+      color: var(--accent-dark);
+    }
+  }
+
+  &__intro {
+    margin: 0 0 rem(28px);
+    padding: rem(16px) rem(20px);
+    border-left: rem(4px) solid var(--accent);
+    background: var(--accent-soft);
+    border-radius: 0 rem(12px) rem(12px) 0;
+
+    p {
+      margin: 0;
+      line-height: 1.65;
+      color: var(--text);
+      font-size: rem(16px);
+    }
+  }
+
+  &__heading {
+    margin: 0 0 rem(16px);
+    font-family: var(--font-display);
+  }
+
+  &__steps {
+    padding-left: rem(20px);
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(12px);
+    margin-top: rem(32px);
+  }
+
+  &__ingredient-list {
+    margin: 0 0 rem(16px);
+    padding-left: rem(18px);
+    color: var(--text);
+  }
+
+  &__ingredient {
+    margin-bottom: rem(7px);
+    line-height: 1.45;
+
+    &--missing {
+      color: var(--color-missing);
+      font-weight: 600;
+    }
+
+    &--optional:not(.recipe-detail__ingredient--missing) {
+      color: var(--text-muted);
+    }
+  }
+
+  &__hint {
+    margin: 0 0 rem(8px);
+    font-size: rem(13px);
+    line-height: 1.45;
+    color: var(--text-muted);
+
+    &--muted {
+      margin-bottom: rem(16px);
+    }
+  }
+
+  &__hint-sample {
+    color: var(--color-missing);
+    font-weight: 600;
+  }
+
+  &__optional-mark {
+    font-size: 0.85em;
+    color: var(--text-muted);
+  }
+
+  &__shopping-btn {
+    width: 100%;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(8px);
+  }
+
+  &__tag {
+    padding: rem(4px) rem(10px);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: rem(13px);
+  }
+}

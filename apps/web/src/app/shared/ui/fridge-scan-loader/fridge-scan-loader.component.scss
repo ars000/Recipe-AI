@@ -1,0 +1,329 @@
+@use "../../../../styles/breakpoints" as *;
+
+$cycle: 8.5s;
+
+.fridge-scan-loader {
+  --fridge-ink: var(--stone-800);
+  --fridge-body: #d8d8d8;
+  --fridge-cavity: #f4f6f8;
+  --fridge-panel: #e4e4e4;
+  --fridge-drawer: #efefef;
+  --fridge-egg: #fff8f0;
+  --fridge-chicken: #c9956c;
+  --fridge-banana: #f0d24a;
+  --fridge-milk: #f7f7f7;
+  --fridge-milk-cap: #3b6bb8;
+  --fridge-milk-label: #3b6bb8;
+  --fridge-cheese: #f0c83a;
+  --fridge-cheese-hole: #e8b820;
+  --fridge-sausage: #d4655a;
+  --fridge-handle: #5a5a5a;
+
+  width: rem(240px);
+  max-width: 100%;
+  margin-left: -40px;
+  perspective: rem(900px);
+  perspective-origin: 50% 45%;
+
+  &__svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    transform-style: preserve-3d;
+  }
+
+  &__feet rect {
+    fill: var(--fridge-body);
+    stroke: var(--fridge-ink);
+    stroke-width: 2.5px;
+    stroke-linejoin: round;
+  }
+
+  &__body {
+    fill: var(--fridge-body);
+    stroke: var(--fridge-ink);
+    stroke-width: 3px;
+    stroke-linejoin: round;
+  }
+
+  &__cavity {
+    fill: var(--fridge-cavity);
+    stroke: var(--fridge-ink);
+    stroke-width: 2px;
+  }
+
+  &__freezer,
+  &__drawer {
+    fill: var(--fridge-drawer);
+    stroke: var(--fridge-ink);
+    stroke-width: 2px;
+    stroke-linejoin: round;
+  }
+
+  &__line,
+  &__stroke {
+    fill: none;
+    stroke: var(--fridge-ink);
+    stroke-width: 2.5px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  &__door {
+    transform-box: fill-box;
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    animation: fridge-scan-door $cycle cubic-bezier(0.4, 0.05, 0.2, 1) infinite;
+  }
+
+  &__door-panel {
+    fill: var(--fridge-panel);
+    stroke: var(--fridge-ink);
+    stroke-width: 3px;
+    stroke-linejoin: round;
+  }
+
+  &__handle {
+    fill: var(--fridge-handle);
+    stroke: var(--fridge-ink);
+    stroke-width: 2px;
+  }
+
+  &__product {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center center;
+    animation-duration: $cycle;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+
+    ellipse,
+    path,
+    rect {
+      stroke: var(--fridge-ink);
+      stroke-width: 2.5px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    &--egg {
+      animation-name: fridge-scan-item-1;
+
+      ellipse {
+        fill: var(--fridge-egg);
+      }
+    }
+
+    &--chicken {
+      animation-name: fridge-scan-item-2;
+
+      path:not(.fridge-scan-loader__stroke) {
+        fill: var(--fridge-chicken);
+      }
+    }
+
+    &--banana {
+      animation-name: fridge-scan-item-3;
+
+      path:not(.fridge-scan-loader__stroke) {
+        fill: var(--fridge-banana);
+      }
+    }
+
+    &--milk {
+      animation-name: fridge-scan-item-4;
+    }
+
+    &--cheese {
+      animation-name: fridge-scan-item-5;
+
+      path {
+        fill: var(--fridge-cheese);
+      }
+    }
+
+    &--sausage {
+      animation-name: fridge-scan-item-6;
+
+      rect {
+        fill: var(--fridge-sausage);
+      }
+    }
+  }
+
+  &__milk-body {
+    fill: var(--fridge-milk);
+  }
+
+  &__milk-cap {
+    fill: var(--fridge-milk-cap);
+  }
+
+  &__milk-label {
+    fill: var(--fridge-milk-label);
+    stroke: none;
+  }
+
+  &__cheese-hole {
+    fill: var(--fridge-cheese-hole);
+    stroke: var(--fridge-ink);
+    stroke-width: 1.5px;
+  }
+}
+
+@keyframes fridge-scan-door {
+  0%,
+  5% {
+    transform: perspective(900px) rotateY(0deg);
+  }
+
+  12%,
+  78% {
+    transform: perspective(900px) rotateY(-105deg);
+  }
+
+  88%,
+  100% {
+    transform: perspective(900px) rotateY(0deg);
+  }
+}
+
+@keyframes fridge-scan-item-1 {
+  0%,
+  14% {
+    opacity: 0;
+    transform: translate(40px, -32px) scale(0.5);
+  }
+
+  18%,
+  74% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  84%,
+  100% {
+    opacity: 0;
+    transform: translate(0, 10px) scale(0.9);
+  }
+}
+
+@keyframes fridge-scan-item-2 {
+  0%,
+  22% {
+    opacity: 0;
+    transform: translate(40px, -32px) scale(0.5);
+  }
+
+  26%,
+  74% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  84%,
+  100% {
+    opacity: 0;
+    transform: translate(0, 10px) scale(0.9);
+  }
+}
+
+@keyframes fridge-scan-item-3 {
+  0%,
+  30% {
+    opacity: 0;
+    transform: translate(40px, -32px) scale(0.5);
+  }
+
+  34%,
+  74% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  84%,
+  100% {
+    opacity: 0;
+    transform: translate(0, 10px) scale(0.9);
+  }
+}
+
+@keyframes fridge-scan-item-4 {
+  0%,
+  38% {
+    opacity: 0;
+    transform: translate(40px, -32px) scale(0.5);
+  }
+
+  42%,
+  74% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  84%,
+  100% {
+    opacity: 0;
+    transform: translate(0, 10px) scale(0.9);
+  }
+}
+
+@keyframes fridge-scan-item-5 {
+  0%,
+  46% {
+    opacity: 0;
+    transform: translate(40px, -32px) scale(0.5);
+  }
+
+  50%,
+  74% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  84%,
+  100% {
+    opacity: 0;
+    transform: translate(0, 10px) scale(0.9);
+  }
+}
+
+@keyframes fridge-scan-item-6 {
+  0%,
+  54% {
+    opacity: 0;
+    transform: translate(40px, -32px) scale(0.5);
+  }
+
+  58%,
+  74% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  84%,
+  100% {
+    opacity: 0;
+    transform: translate(0, 10px) scale(0.9);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fridge-scan-loader {
+    &__door,
+    &__product {
+      animation: none;
+    }
+
+    &__door {
+      transform: perspective(900px) rotateY(-105deg);
+    }
+
+    &__product {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}

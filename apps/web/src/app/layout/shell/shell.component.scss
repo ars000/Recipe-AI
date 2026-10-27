@@ -1,0 +1,154 @@
+@use "../../../styles/breakpoints" as *;
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  &__header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+
+  &__header-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: rem(16px);
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: rem(12px) rem(24px);
+  }
+
+  &__nav {
+    display: none;
+    gap: rem(20px);
+    flex-wrap: wrap;
+  }
+
+  &__nav-link {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: rem(15px);
+
+    &--active,
+    &:hover {
+      color: var(--accent-dark);
+    }
+  }
+
+  &__cta {
+    border-radius: 999px !important;
+  }
+
+  @include media("min", "lg") {
+    &__nav {
+      display: flex;
+    }
+  }
+
+  &__main {
+    flex: 1;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: rem(32px) 0;
+    box-sizing: border-box;
+  }
+
+  &__footer {
+    margin-top: rem(32px);
+    padding: rem(48px) rem(24px) rem(24px);
+    background: var(--footer-bg);
+    color: var(--footer-text);
+  }
+
+  &__footer-grid {
+    display: grid;
+    gap: rem(32px);
+    grid-template-columns: repeat(auto-fit, minmax(rem(200px), 1fr));
+    max-width: $container-max-width;
+    margin: 0 auto rem(32px);
+
+    h5 {
+      margin: 0 0 rem(16px);
+      font-family: var(--font-display);
+      color: var(--on-dark);
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      color: var(--footer-text);
+      text-decoration: none;
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+
+  &__footer-about {
+    max-width: rem(280px);
+    margin: rem(12px) 0 0;
+    line-height: 1.6;
+  }
+
+  &__footer-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(8px);
+  }
+
+  &__footer-tag {
+    padding: rem(6px) rem(12px);
+    background: var(--white-alpha-08);
+    border-radius: 999px;
+    font-size: rem(13px);
+  }
+
+  &__copyright {
+    margin: 0;
+
+    opacity: 0.7;
+
+    font-size: rem(14px);
+    text-align: center;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: rem(8px);
+  margin-right: auto;
+  color: var(--text);
+  text-decoration: none;
+
+  &__text {
+    font-family: var(--font-display);
+    font-size: rem(22px);
+    font-weight: 700;
+  }
+
+  &__accent {
+    color: var(--accent);
+  }
+
+  &--in-footer {
+    margin-right: 0;
+    color: var(--on-dark);
+
+    .logo__accent {
+      color: var(--accent-300);
+    }
+  }
+}

@@ -1,0 +1,52 @@
+@use '@angular/material' as mat;
+@use './variables' as v;
+@include mat.core;
+
+$recipe-primary: mat.m2-define-palette(
+  (
+    50: v.$accent-50,
+    100: v.$accent-100,
+    200: v.$accent-200,
+    300: v.$accent-300,
+    400: v.$accent-400,
+    500: v.$accent-500,
+    600: v.$accent-600,
+    700: v.$accent-700,
+    800: v.$accent-800,
+    900: v.$accent-900,
+    contrast: (
+      50: v.$text,
+      100: v.$text,
+      200: v.$text,
+      300: v.$text,
+      400: v.$text,
+      500: v.$white,
+      600: v.$white,
+      700: v.$white,
+      800: v.$white,
+      900: v.$white,
+    ),
+  )
+);
+$recipe-accent: mat.m2-define-palette(mat.$m2-grey-palette, 800);
+$recipe-warn: mat.m2-define-palette(mat.$m2-red-palette);
+$recipe-theme: mat.m2-define-light-theme(
+  (
+    color: (
+      primary: $recipe-primary,
+      accent: $recipe-accent,
+      warn: $recipe-warn,
+    ),
+    typography: mat.m2-define-typography-config(
+      $font-family: 'Jost, sans-serif',
+    ),
+    density: 0,
+  )
+);
+
+@include mat.all-component-themes($recipe-theme);
+
+.mat-mdc-unelevated-button.mat-primary {
+  --mdc-filled-button-container-color: var(--accent);
+  --mdc-filled-button-label-text-color: var(--on-dark);
+}

@@ -1,0 +1,31 @@
+<main class="share-page">
+  @if (error()) {
+    <p class="share-page__error">Ссылка недействительна или срок её действия истёк.</p>
+  } @else {
+    @if (snapshot(); as snap) {
+      <header class="share-page__head">
+        <h1>{{ snap.listName }}</h1>
+        <p class="share-page__meta">Список на покупки</p>
+      </header>
+      @if (!snap.items.length) {
+        <p class="share-page__empty">В списке нет позиций.</p>
+      } @else {
+        <ul class="share-page__list">
+          @for (item of snap.items; track item.name) {
+            <li>
+              <span class="share-page__box" aria-hidden="true"></span>
+              <span>
+                {{ item.name }}
+                @if (item.amount != null) {
+                  — {{ formatAmount(item.amount) }} {{ formatUnit(item.unit) }}
+                }
+              </span>
+            </li>
+          }
+        </ul>
+      }
+    } @else {
+      <p class="share-page__loading">Загрузка…</p>
+    }
+  }
+</main>

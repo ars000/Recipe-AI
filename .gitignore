@@ -1,0 +1,15 @@
+node_modules/
+dist/
+apps/api/dist/
+apps/web/dist/
+**/.env
+!.env.example
+libs/shared/src/**/*.js
+libs/shared/src/**/*.js.map
+libs/shared/src/**/*.d.ts
+.angular/
+.env
+uploads/
+*.log
+.DS_Store
+coverage/

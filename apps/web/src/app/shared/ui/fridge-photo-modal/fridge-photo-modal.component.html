@@ -1,0 +1,194 @@
+@if (isOpen()) {
+  <div
+    class="app-modal fridge-photo-modal"
+    role="dialog"
+    aria-labelledby="fridge-photo-modal-title"
+    aria-modal="true"
+    (click)="onBackdropClick($event)"
+  >
+    <div class="app-modal__card panel fridge-photo-modal__card" (click)="$event.stopPropagation()">
+      <header class="app-modal__head">
+        <h2 id="fridge-photo-modal-title" class="app-modal__title">Фото холодильника</h2>
+        <button
+          type="button"
+          class="app-modal__close"
+          aria-label="Закрыть"
+          [disabled]="isWorking()"
+          (click)="requestClose()"
+        >
+          ×
+        </button>
+      </header>
+
+      @switch (step()) {
+        @case ('pick') {
+          <p class="app-modal__lead">
+            Загрузите снимок полок или дверцы — мы предложим продукты из каталога, вы подтвердите список.
+          </p>
+
+          <div
+            class="fridge-photo-modal__dropzone"
+            (drop)="onDrop($event)"
+            (dragover)="onDragOver($event)"
+            (click)="triggerFileInput(fileInput)"
+          >
+            @if (previewUrl(); as src) {
+              <img class="fridge-photo-modal__preview" [src]="src" alt="Предпросмотр фото" />
+            } @else {
+              <span class="fridge-photo-modal__dropzone-hint">Перетащите фото сюда или нажмите, чтобы выбрать</span>
+            }
+          </div>
+          <input
+            #fileInput
+            type="file"
+            accept="image/*"
+            hidden
+            (change)="onFileInput($event)"
+          />
+
+          <div class="app-modal__actions">
+            <button type="button" class="btn btn--outline" (click)="requestClose()">Отмена</button>
+            <button
+              type="button"
+              class="btn btn--accent"
+              [disabled]="!previewUrl()"
+              (click)="startRecognition()"
+            >
+              Распознать
+            </button>
+          </div>
+        }
+
+        @case ('working') {
+          <div class="fridge-photo-modal__working">
+            <app-fridge-scan-loader />
+            <p class="fridge-photo-modal__working-label">{{ workingLabel() }}</p>
+          </div>
+        }
+
+        @case ('review') {
+          @if (previewUrl(); as src) {
+            <img class="fridge-photo-modal__preview fridge-photo-modal__preview--compact" [src]="src" alt="" />
+          }
+
+          @if (matched().length || unresolved().length) {
+            <div class="fridge-photo-modal__section-head fridge-photo-modal__section-head--global">
+              <span class="fridge-photo-modal__section-title">Выбор для добавления</span>
+              <label class="fridge-photo-modal__select-all">
+                <mat-checkbox
+                  [checked]="allSelectedForAdd()"
+                  [indeterminate]="someSelectedForAdd()"
+                  (change)="selectAllForAdd($event.checked)"
+                />
+                Выбрать все
+              </label>
+            </div>
+          }
+
+          @if (matched().length) {
+            <h3 class="fridge-photo-modal__section-title">Нашли в каталоге</h3>
+            <div class="ingredient-grid ingredient-grid--wide fridge-photo-modal__grid">
+              @for (item of matched(); track item.id) {
+                <label class="ingredient-grid__chip">
+                  <mat-checkbox
+                    [checked]="item.selected"
+                    (change)="toggleMatched(item.id, $event.checked)"
+                  />
+                  {{ pantryLabel(item.nameRu) }}
+                </label>
+              }
+            </div>
+          }
+
+          @if (unresolved().length) {
+            <h3 class="fridge-photo-modal__section-title">Уточните сопоставление</h3>
+            <p class="fridge-photo-modal__hint">
+              Модель назвала продукт иначе, чем в каталоге — выберите подходящую позицию и отметьте галочкой.
+            </p>
+            <ul class="fridge-photo-modal__resolve-list">
+              @for (row of unresolved(); track row.key) {
+                <li class="fridge-photo-modal__resolve-row">
+                  <div class="fridge-photo-modal__resolve-head">
+                    <span class="fridge-photo-modal__resolve-ai">«{{ row.sourceName }}»</span>
+                    @if (row.confidence != null) {
+                      <span class="fridge-photo-modal__confidence">
+                        уверенность {{ (row.confidence * 100) | number: '1.0-0' }}%
+                      </span>
+                    }
+                  </div>
+                  <div class="fridge-photo-modal__resolve-controls">
+                    <label class="fridge-photo-modal__resolve-check">
+                      <mat-checkbox
+                        [checked]="row.include"
+                        [disabled]="!row.pickedIngredientId"
+                        (change)="toggleUnresolvedInclude(row.key, $event.checked)"
+                      />
+                      Добавить
+                    </label>
+                    <mat-form-field
+                      appearance="outline"
+                      subscriptSizing="dynamic"
+                      class="fridge-photo-modal__resolve-field form-field--outline"
+                    >
+                      <mat-label>В каталоге</mat-label>
+                      <mat-select
+                        [value]="row.pickedIngredientId"
+                        (valueChange)="pickUnresolvedIngredient(row.key, $event)"
+                      >
+                        @for (opt of row.suggestions; track opt.id) {
+                          <mat-option [value]="opt.id">
+                            {{ pantryLabel(opt.nameRu) }}
+                          </mat-option>
+                        }
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </li>
+              }
+            </ul>
+          }
+
+          @if (unknown().length) {
+            <h3 class="fridge-photo-modal__section-title">Нет в каталоге</h3>
+            <p class="fridge-photo-modal__hint">
+              Эти названия не удалось связать с ингредиентами приложения — отметьте их вручную на странице продуктов.
+            </p>
+            <ul class="fridge-photo-modal__unknown">
+              @for (row of unknown(); track row.sourceName) {
+                <li>{{ row.sourceName }}</li>
+              }
+            </ul>
+          }
+
+          @if (!matched().length && !unresolved().length) {
+            <p class="app-modal__lead">
+              Совпадений с каталогом нет. Попробуйте другой снимок или отметьте продукты вручную.
+            </p>
+          }
+
+          <div class="app-modal__actions">
+            <button type="button" class="btn btn--outline" (click)="step.set('pick')">
+              Другое фото
+            </button>
+            <button
+              type="button"
+              class="btn btn--accent"
+              [disabled]="selectedCount() === 0"
+              (click)="confirm()"
+            >
+              Добавить выбранные ({{ selectedCount() }})
+            </button>
+          </div>
+        }
+
+        @case ('error') {
+          <p class="fridge-photo-modal__error">{{ errorMessage() }}</p>
+          <div class="app-modal__actions">
+            <button type="button" class="btn btn--outline" (click)="requestClose()">Закрыть</button>
+            <button type="button" class="btn btn--accent" (click)="step.set('pick')">Попробовать снова</button>
+          </div>
+        }
+      }
+    </div>
+  </div>
+}

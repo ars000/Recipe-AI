@@ -1,0 +1,4412 @@
+[
+  {
+    "slug": "kuritsa",
+    "nameRu": "Курица (тушка)",
+    "category": "мясо",
+    "aliases": [
+      "курица",
+      "курица целиком",
+      "тушка курицы"
+    ]
+  },
+  {
+    "slug": "kuritsa-grudka",
+    "nameRu": "Куриная грудка",
+    "category": "мясо",
+    "aliases": [
+      "грудка",
+      "куриная грудка",
+      "филе грудки",
+      "куриное филе",
+      "филе курицы",
+      "куриное филе без кости",
+      "Куриные грудки",
+      "Куриные грудки вареные"
+    ]
+  },
+  {
+    "slug": "kuritsa-krylya",
+    "nameRu": "Куриные крылья",
+    "category": "мясо",
+    "aliases": [
+      "крылья",
+      "куриные крылья",
+      "крылышки"
+    ]
+  },
+  {
+    "slug": "kuritsa-bedro",
+    "nameRu": "Куриные бёдра",
+    "category": "мясо",
+    "aliases": [
+      "бедро",
+      "куриные бедра",
+      "бёдра курицы",
+      "куриное бедро"
+    ]
+  },
+  {
+    "slug": "kuritsa-okorochka",
+    "nameRu": "Куриные окорочка",
+    "category": "мясо",
+    "aliases": [
+      "окорочок",
+      "окорочка",
+      "куриные окорочка"
+    ]
+  },
+  {
+    "slug": "farsh-govyazhiy",
+    "nameRu": "Фарш говяжий",
+    "category": "мясо",
+    "aliases": [
+      "говяжий фарш",
+      "фарш говяжий"
+    ]
+  },
+  {
+    "slug": "farsh-kurinyy",
+    "nameRu": "Фарш куриный",
+    "category": "мясо",
+    "aliases": [
+      "куриный фарш",
+      "фарш куриный",
+      "фарш из курицы"
+    ]
+  },
+  {
+    "slug": "farsh-svininyy",
+    "nameRu": "Фарш свиной",
+    "category": "мясо",
+    "aliases": [
+      "свиной фарш",
+      "фарш свиной"
+    ]
+  },
+  {
+    "slug": "farsh-smeshannyy",
+    "nameRu": "Фарш смешанный",
+    "category": "мясо",
+    "aliases": [
+      "смешанный фарш",
+      "фарш домашний",
+      "Мясной фарш",
+      "Фарш мясной"
+    ]
+  },
+  {
+    "slug": "ris",
+    "nameRu": "Рис",
+    "category": "бакалея",
+    "aliases": [
+      "рис белый",
+      "рис длиннозерный"
+    ]
+  },
+  {
+    "slug": "yaytsa",
+    "nameRu": "Яйца",
+    "category": "молочное",
+    "aliases": [
+      "яйцо",
+      "яйца куриные",
+      "Яйца куриные крупные",
+      "Яйцо куриное",
+      "Куриное яйцо"
+    ]
+  },
+  {
+    "slug": "pomidor",
+    "nameRu": "Помидоры",
+    "category": "овощи",
+    "aliases": [
+      "помидор",
+      "томаты",
+      "томат",
+      "Красные помидоры",
+      "Крупные помидоры",
+      "Крупные сладкие помидоры",
+      "Помидор: 1 шт;"
+    ]
+  },
+  {
+    "slug": "kartofel",
+    "nameRu": "Картофель",
+    "category": "овощи",
+    "aliases": [
+      "картошка",
+      "Картофель вареный",
+      "Картофель вареный в мундире"
+    ]
+  },
+  {
+    "slug": "luk",
+    "nameRu": "Лук репчатый",
+    "category": "овощи",
+    "aliases": [
+      "лук",
+      "репчатый лук"
+    ]
+  },
+  {
+    "slug": "morkov",
+    "nameRu": "Морковь",
+    "category": "овощи",
+    "aliases": [
+      "морковка",
+      "Морковь крупная"
+    ]
+  },
+  {
+    "slug": "chesnok",
+    "nameRu": "Чеснок",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "moloko",
+    "nameRu": "Молоко",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "smetana",
+    "nameRu": "Сметана",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "tvorog",
+    "nameRu": "Творог",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "sir",
+    "nameRu": "Сыр",
+    "category": "молочное",
+    "aliases": [
+      "твёрдый сыр"
+    ]
+  },
+  {
+    "slug": "maslo-sliv",
+    "nameRu": "Сливочное масло",
+    "category": "молочное",
+    "aliases": [
+      "масло сливочное"
+    ]
+  },
+  {
+    "slug": "muka",
+    "nameRu": "Мука",
+    "category": "бакалея",
+    "aliases": [
+      "мука пшеничная"
+    ]
+  },
+  {
+    "slug": "sahar",
+    "nameRu": "Сахар",
+    "category": "бакалея",
+    "aliases": [
+      "Мелкий сахарный песок"
+    ]
+  },
+  {
+    "slug": "sol",
+    "nameRu": "Соль",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "perets",
+    "nameRu": "Перец чёрный молотый",
+    "category": "зелень",
+    "aliases": [
+      "перец молотый",
+      "перец чёрный",
+      "Молотый черный перец",
+      "Свежемолотый черный перец"
+    ]
+  },
+  {
+    "slug": "rastmaslo",
+    "nameRu": "Растительное масло",
+    "category": "бакалея",
+    "aliases": [
+      "масло растительное",
+      "подсолнечное масло"
+    ]
+  },
+  {
+    "slug": "perlovka",
+    "nameRu": "Перловка",
+    "category": "бакалея",
+    "aliases": [
+      "перловая крупа"
+    ]
+  },
+  {
+    "slug": "lapsha",
+    "nameRu": "Лапша",
+    "category": "бакалея",
+    "aliases": [
+      "лапша яичная",
+      "вермишель",
+      "яичная лапша"
+    ]
+  },
+  {
+    "slug": "goroh",
+    "nameRu": "Горошек зелёный",
+    "category": "бакалея",
+    "aliases": [
+      "зелёный горошек",
+      "горошек консервированный",
+      "горошек",
+      "горошек зелёный мороженый"
+    ]
+  },
+  {
+    "slug": "kvashen-kapusta",
+    "nameRu": "Капуста квашеная",
+    "category": "овощи",
+    "aliases": [
+      "квашеная капуста"
+    ]
+  },
+  {
+    "slug": "govyadina",
+    "nameRu": "Говядина",
+    "category": "мясо",
+    "aliases": [
+      "говядина кусок",
+      "мясо говядины"
+    ]
+  },
+  {
+    "slug": "svinina",
+    "nameRu": "Свинина",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "ryba",
+    "nameRu": "Филе белой рыбы",
+    "category": "рыба",
+    "aliases": [
+      "рыба",
+      "филе рыбы"
+    ]
+  },
+  {
+    "slug": "kapusta",
+    "nameRu": "Капуста белокочанная",
+    "category": "овощи",
+    "aliases": [
+      "капуста",
+      "Белокочанная капуста 1 кочан",
+      "Белокочанная капуста"
+    ]
+  },
+  {
+    "slug": "kapusta-bryuss",
+    "nameRu": "Брюссельская капуста",
+    "category": "овощи",
+    "aliases": [
+      "брюссельская капуста"
+    ]
+  },
+  {
+    "slug": "ogurets",
+    "nameRu": "Огурцы",
+    "category": "овощи",
+    "aliases": [
+      "огурец",
+      "Небольшие огурцы"
+    ]
+  },
+  {
+    "slug": "perets-bolg",
+    "nameRu": "Перец болгарский",
+    "category": "овощи",
+    "aliases": [
+      "болгарский перец",
+      "Болгарский красный перец"
+    ]
+  },
+  {
+    "slug": "kabachok",
+    "nameRu": "Кабачки",
+    "category": "овощи",
+    "aliases": [
+      "кабачок",
+      "цукини",
+      "Кабачки молодые"
+    ]
+  },
+  {
+    "slug": "baklazhan",
+    "nameRu": "Баклажаны",
+    "category": "овощи",
+    "aliases": [
+      "баклажан"
+    ]
+  },
+  {
+    "slug": "grechka",
+    "nameRu": "Гречка",
+    "category": "бакалея",
+    "aliases": [
+      "гречневая крупа"
+    ]
+  },
+  {
+    "slug": "makaron",
+    "nameRu": "Макароны",
+    "category": "бакалея",
+    "aliases": [
+      "макароны",
+      "пasta",
+      "спагетти"
+    ]
+  },
+  {
+    "slug": "fasol",
+    "nameRu": "Фасоль",
+    "category": "бакалея",
+    "aliases": [
+      "фасоль консервированная"
+    ]
+  },
+  {
+    "slug": "fasol-struchkovaya",
+    "nameRu": "Фасоль стручковая",
+    "category": "овощи",
+    "aliases": [
+      "стручковая фасоль",
+      "фасоль стручковая"
+    ]
+  },
+  {
+    "slug": "chechevitsa",
+    "nameRu": "Чечевица",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "nut",
+    "nameRu": "Нут",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "griby",
+    "nameRu": "Грибы",
+    "category": "грибы",
+    "aliases": [
+      "шампиньоны"
+    ]
+  },
+  {
+    "slug": "sliva",
+    "nameRu": "Сливы",
+    "category": "фрукты",
+    "aliases": [
+      "слива"
+    ]
+  },
+  {
+    "slug": "yabloko",
+    "nameRu": "Яблоки",
+    "category": "фрукты",
+    "aliases": [
+      "яблоко"
+    ]
+  },
+  {
+    "slug": "limon",
+    "nameRu": "Лимон",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "banan",
+    "nameRu": "Бананы",
+    "category": "фрукты",
+    "aliases": [
+      "банан"
+    ]
+  },
+  {
+    "slug": "kefir",
+    "nameRu": "Кефир",
+    "category": "молочное",
+    "aliases": [
+      "кефир",
+      "Кефир 2,5%"
+    ]
+  },
+  {
+    "slug": "yogurt",
+    "nameRu": "Йогурт",
+    "category": "молочное",
+    "aliases": [
+      "Йогурт греческий",
+      "Йогурт жирный",
+      "Йогурт натуральный"
+    ]
+  },
+  {
+    "slug": "mayonez",
+    "nameRu": "Майонез",
+    "category": "соусы",
+    "aliases": [
+      "«Московский Провансаль» от бренда «Я люблю готовить»",
+      "Майонез ТМ «МахеевЪ»"
+    ]
+  },
+  {
+    "slug": "ketchup",
+    "nameRu": "Кетчуп",
+    "category": "соусы",
+    "aliases": [
+      "кетчуп",
+      "Кетчуп острый ТМ «МахеевЪ»",
+      "Кетчуп томатный",
+      "Кетчуп томатный ТМ «МахеевЪ»"
+    ]
+  },
+  {
+    "slug": "gorchitsa",
+    "nameRu": "Горчица",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "ukrop",
+    "nameRu": "Укроп",
+    "category": "зелень",
+    "aliases": [
+      "Небольшой пучок укропа"
+    ]
+  },
+  {
+    "slug": "petrushka",
+    "nameRu": "Петрушка",
+    "category": "зелень",
+    "aliases": [
+      "Маленький пучок петрушки",
+      "Небольшой пучок петрушки"
+    ]
+  },
+  {
+    "slug": "svekla",
+    "nameRu": "Свёкла",
+    "category": "овощи",
+    "aliases": [
+      "свекла",
+      "Небольшая свекла"
+    ]
+  },
+  {
+    "slug": "kukuruza",
+    "nameRu": "Кукуруза консервированная",
+    "category": "бакалея",
+    "aliases": [
+      "кукуруза"
+    ]
+  },
+  {
+    "slug": "kolbasa",
+    "nameRu": "Колбаса",
+    "category": "прочее",
+    "aliases": [
+      "сосиски"
+    ]
+  },
+  {
+    "slug": "bekon",
+    "nameRu": "Бекон",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "krevetki",
+    "nameRu": "Креветки королевские",
+    "category": "рыба",
+    "aliases": [
+      "креветки",
+      "креветка",
+      "Королевские креветки"
+    ]
+  },
+  {
+    "slug": "tunets",
+    "nameRu": "Тунец консервированный",
+    "category": "бакалея",
+    "aliases": [
+      "тунец"
+    ]
+  },
+  {
+    "slug": "seld",
+    "nameRu": "Сельдь",
+    "category": "рыба",
+    "aliases": [
+      "селёдка",
+      "Большая жирная сельдь"
+    ]
+  },
+  {
+    "slug": "avokado",
+    "nameRu": "Авокадо",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "med",
+    "nameRu": "Мёд",
+    "category": "бакалея",
+    "aliases": [
+      "мед"
+    ]
+  },
+  {
+    "slug": "koritsa",
+    "nameRu": "Корица",
+    "category": "зелень",
+    "aliases": [
+      "Корица 1 палочка"
+    ]
+  },
+  {
+    "slug": "laurel",
+    "nameRu": "Лавровый лист",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "ukus",
+    "nameRu": "Уксус",
+    "category": "соусы",
+    "aliases": [
+      "уксус столовый"
+    ]
+  },
+  {
+    "slug": "brokkoli",
+    "nameRu": "Брокколи",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "cauliflower",
+    "nameRu": "Цветная капуста",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "shpinat",
+    "nameRu": "Шпинат",
+    "category": "овощи",
+    "aliases": [
+      "шпинат",
+      "шпинат замороженный"
+    ]
+  },
+  {
+    "slug": "redis",
+    "nameRu": "Редис",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "salat-list",
+    "nameRu": "Листья салата",
+    "category": "овощи",
+    "aliases": [
+      "салат",
+      "айсберг",
+      "Листовой салат"
+    ]
+  },
+  {
+    "slug": "kinoa",
+    "nameRu": "Киноа",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "bulgur",
+    "nameRu": "Булгур",
+    "category": "бакалея",
+    "aliases": [
+      "булгур",
+      "bulgur"
+    ]
+  },
+  {
+    "slug": "tofu",
+    "nameRu": "Тофу",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "olivki",
+    "nameRu": "Оливки",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "kapery",
+    "nameRu": "Каперсы",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "parmezan",
+    "nameRu": "Пармезан",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "mozzarella",
+    "nameRu": "Моцарелла",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "slivki",
+    "nameRu": "Сливки",
+    "category": "молочное",
+    "aliases": [
+      "сливки 20%",
+      "сливки жирные",
+      "жирные сливки"
+    ]
+  },
+  {
+    "slug": "indiejka",
+    "nameRu": "Индейка",
+    "category": "мясо",
+    "aliases": [
+      "филе индейки"
+    ]
+  },
+  {
+    "slug": "pechen",
+    "nameRu": "Печень",
+    "category": "мясо",
+    "aliases": [
+      "куриная печень",
+      "Печень индейки",
+      "Печень куриная"
+    ]
+  },
+  {
+    "slug": "tikva",
+    "nameRu": "Тыква",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "imbir",
+    "nameRu": "Корень имбиря",
+    "category": "зелень",
+    "aliases": [
+      "небольшой корень имбиря"
+    ]
+  },
+  {
+    "slug": "soevyy-sous",
+    "nameRu": "Соевый соус",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "ustrichesnyy-sous",
+    "nameRu": "Устричный соус",
+    "category": "соусы",
+    "aliases": [
+      "устричный соус"
+    ]
+  },
+  {
+    "slug": "rozmarin",
+    "nameRu": "Розмарин",
+    "category": "зелень",
+    "aliases": [
+      "розмарин свежий"
+    ]
+  },
+  {
+    "slug": "teriyaki",
+    "nameRu": "Соус терияки",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "krevet-pasta",
+    "nameRu": "Томатная паста",
+    "category": "бакалея",
+    "aliases": [
+      "томатная паста",
+      "пасата"
+    ]
+  },
+  {
+    "slug": "drozhzhi",
+    "nameRu": "Дрожжи",
+    "category": "бакалея",
+    "aliases": [
+      "дрожжи сухие"
+    ]
+  },
+  {
+    "slug": "vanil",
+    "nameRu": "Ванильный сахар",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "kakao",
+    "nameRu": "Какао",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "shokolad",
+    "nameRu": "Шоколад",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "orehi",
+    "nameRu": "Орехи грецкие",
+    "category": "бакалея",
+    "aliases": [
+      "грецкие орехи"
+    ]
+  },
+  {
+    "slug": "izyum",
+    "nameRu": "Изюм",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "malina",
+    "nameRu": "Малина",
+    "category": "фрукты",
+    "aliases": [
+      "малина замороженная"
+    ]
+  },
+  {
+    "slug": "klubnika",
+    "nameRu": "Клубника",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "apelsin",
+    "nameRu": "Апельсин",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "gretskiy-sous",
+    "nameRu": "Сметанный соус",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "kukur-krupa",
+    "nameRu": "Кукурузная крупа",
+    "category": "бакалея",
+    "aliases": [
+      "полenta"
+    ]
+  },
+  {
+    "slug": "manка",
+    "nameRu": "Манная крупа",
+    "category": "бакалея",
+    "aliases": [
+      "манка"
+    ]
+  },
+  {
+    "slug": "ovsyanka",
+    "nameRu": "Овсяные хлопья",
+    "category": "бакалея",
+    "aliases": [
+      "геркулес",
+      "овсянка"
+    ]
+  },
+  {
+    "slug": "lahmacun-yogurt",
+    "nameRu": "Натуральный йогурт без добавок",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "gretskiy-oreh",
+    "nameRu": "Грецкий орех",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "maslo-ghi-1-st-l",
+    "nameRu": "Масло ГХИ",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "varene-po-zhelaniyu",
+    "nameRu": "Варенье",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "vinograd",
+    "nameRu": "Виноград",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "svinoe-file",
+    "nameRu": "Свиное филе",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "chipsy",
+    "nameRu": "Чипсы",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "masliny-bez-kostochek",
+    "nameRu": "Маслины без косточек",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "listy-lazani",
+    "nameRu": "Листы лазаньи",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "priprava-dlya-kartofelya",
+    "nameRu": "Приправа для картофеля",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "ananasy-konservirovannye",
+    "nameRu": "Ананасы консервированные",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "zamorozhennaya-ovoschnaya-smes",
+    "nameRu": "Замороженная овощная смесь",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "stebel-seldereya",
+    "nameRu": "Стебель сельдерея",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "tartaletki",
+    "nameRu": "Тарталетки",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "konservirovannaya-sayra-1-banka-250-g",
+    "nameRu": "Сайра консервированная",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "baget",
+    "nameRu": "Багет",
+    "category": "прочее",
+    "aliases": [
+      "Небольошй французский багет"
+    ]
+  },
+  {
+    "slug": "konservirovannye-sardiny-1-banka-200-g",
+    "nameRu": "Сардины консервированные",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "konservirovannye-shproty-1-banka-200-g",
+    "nameRu": "Шпроты консервированные",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "bulochka-dlya-burgera",
+    "nameRu": "Булочка для бургера",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "kivi",
+    "nameRu": "Киви",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "govyazhya-tushenka-1-banka-300-g",
+    "nameRu": "Говяжья тушенка",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "sous-tartar-2-st-l",
+    "nameRu": "Соус тартар",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "borodinskiy-hleb",
+    "nameRu": "Бородинский хлеб",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "kuskus",
+    "nameRu": "Кускус",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "farsh-iz-indeyki",
+    "nameRu": "Фарш из индейки",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "steyk-lososya",
+    "nameRu": "Стейк лосося",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "panirovochnye-suhari-1-st-l",
+    "nameRu": "Панировочные сухари",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "kukuruznye-hlopya",
+    "nameRu": "Кукурузные хлопья",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "sloenoe-testo",
+    "nameRu": "Тесто слоеное",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "kokosovaya-struzhka-po-zhelaniyu",
+    "nameRu": "Кокосовая стружка",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "hlopya-chili",
+    "nameRu": "Хлопья чили",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "suhariki-po-zhelaniyu",
+    "nameRu": "Сухарики",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "kvas-2-l",
+    "nameRu": "Квас",
+    "category": "прочее",
+    "aliases": [
+      "Квас «Семейный секрет. Традиционный»",
+      "Квас на отрубях",
+      "Квас хлебный"
+    ]
+  },
+  {
+    "slug": "hren-stolovyy-2-ch-l",
+    "nameRu": "Хрен столовый",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "svinaya-koreyka",
+    "nameRu": "Свиная корейка",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "sous-pesto",
+    "nameRu": "Соус песто",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "sous-tsezar",
+    "nameRu": "Соус цезарь",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "marinovannye-opyata",
+    "nameRu": "Маринованные опята",
+    "category": "грибы",
+    "aliases": []
+  },
+  {
+    "slug": "rukola",
+    "nameRu": "Рукола",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "vishnevoe-varene",
+    "nameRu": "Вишневое варенье",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "sloenoe-bezdrozhzhevoe-testo",
+    "nameRu": "Тесто слоеное бездрожжевое",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "solenyy-arahis",
+    "nameRu": "Соленый арахис",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "smes-pertsev",
+    "nameRu": "Смесь перцев",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "hlebtsy",
+    "nameRu": "Хлебцы",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "nori-po-zhelaniyu",
+    "nameRu": "Нори",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "maslo-dlya-frityura",
+    "nameRu": "Масло для фритюра",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "arahis-v-glazuri",
+    "nameRu": "Арахис в глазури",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "steyk-iz-indeyki",
+    "nameRu": "Стейк из индейки",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "golubika",
+    "nameRu": "Голубика",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "beze",
+    "nameRu": "Безе",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "krasnoe-vino-400-ml",
+    "nameRu": "Красное вино",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "badyan-zvezdochka",
+    "nameRu": "Бадьян",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "gvozdika",
+    "nameRu": "Гвоздика",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "muskatnyy-oreh-1-schepotka",
+    "nameRu": "Мускатный орех",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "kurinaya-golen",
+    "nameRu": "Куриная голень",
+    "category": "мясо",
+    "aliases": [
+      "Куриные голени"
+    ]
+  },
+  {
+    "slug": "sous-tabasko-1-ch-l",
+    "nameRu": "Соус табаско",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "balzamicheskiy-sous",
+    "nameRu": "Соус бальзамический",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "ohotnichi-kolbaski",
+    "nameRu": "Охотничьи колбаски",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "provanskie-travy-1-ch-l",
+    "nameRu": "Прованские травы",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "file-lososya",
+    "nameRu": "Филе лосося",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "priprava-dlya-kuritsy",
+    "nameRu": "Приправа для курицы",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "steyk-iz-foreli",
+    "nameRu": "Стейк из форели",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "gorbusha-1-kg",
+    "nameRu": "Горбуша",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "tykvennye-semechki-po-zhelaniyu",
+    "nameRu": "Тыквенные семечки",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "sardelki",
+    "nameRu": "Сардельки",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "malinovyy-dzhem",
+    "nameRu": "Джем малиновый",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "priprava-dlya-plova-2-ch-l",
+    "nameRu": "Приправа для плова",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "rzhanye-suhariki",
+    "nameRu": "Ржаные сухарики",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "funchoza",
+    "nameRu": "Фунчоза",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "bulochki-dlya-hot",
+    "nameRu": "Булочки для хот-дога",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "krabovye-palochki",
+    "nameRu": "Крабовые палочки",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "kumin-1-st-l",
+    "nameRu": "Кумин",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "sous-kislo",
+    "nameRu": "Соус кисло",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "govyazhya-vyrezka",
+    "nameRu": "Говяжья вырезка",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "veshenki",
+    "nameRu": "Вешенки",
+    "category": "грибы",
+    "aliases": []
+  },
+  {
+    "slug": "podsolnechnye-semechki-po-zhelaniyu",
+    "nameRu": "Подсолнечные семечки",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "ezhevika-zamorozhennaya",
+    "nameRu": "Ежевика замороженная",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "krem",
+    "nameRu": "Крем",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "tortilya",
+    "nameRu": "Тортилья",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "tostovyy-hleb-po-zhelaniyu",
+    "nameRu": "Тостовый хлеб",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "biskvit",
+    "nameRu": "Бисквит",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "konditerskaya-posypka-po-zhelaniyu",
+    "nameRu": "Кондитерская посыпка",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "greypfrut",
+    "nameRu": "Грейпфрут",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "kofe-250-ml",
+    "nameRu": "Кофе",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "rzhanoy-hleb-2-lomtik",
+    "nameRu": "Хлеб ржаной",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "file-treski",
+    "nameRu": "Филе трески",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "pobegi-seldereya",
+    "nameRu": "Побеги сельдерея",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "chernichnyy-dzhem",
+    "nameRu": "Джем черничный",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "mak-konditerskiy",
+    "nameRu": "Мак кондитерский",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "file-heka",
+    "nameRu": "Филе хека",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "goroh-suhoy",
+    "nameRu": "Горох",
+    "category": "бакалея",
+    "aliases": [
+      "Горох колотый"
+    ]
+  },
+  {
+    "slug": "vanil-1-ch-l",
+    "nameRu": "Ваниль",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "tsukaty",
+    "nameRu": "Цукаты",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "servelat",
+    "nameRu": "Сервелат",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "plombir",
+    "nameRu": "Пломбир",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "klubnichnyy-dzhem",
+    "nameRu": "Джем клубничный",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "shafran-1-st-l",
+    "nameRu": "Шафран",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "italyanskie-travy-1-ch-l",
+    "nameRu": "Итальянские травы",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "beloe-vino-50-ml",
+    "nameRu": "Белое вино",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "marinovannye-kornishony",
+    "nameRu": "Маринованные корнишоны",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "file-seldi",
+    "nameRu": "Филе сельди",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "baton",
+    "nameRu": "Батон",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "mak-pischevoy",
+    "nameRu": "Мак пищевой",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "priprava-k-myasu",
+    "nameRu": "Приправа к мясу",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "sushenaya-zelen",
+    "nameRu": "Сушеная зелень",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "smes-provanskih-trav",
+    "nameRu": "Смесь прованских трав",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "suhari-panirovochnye",
+    "nameRu": "Сухари панировочные",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "sredizemnomorskie-travy",
+    "nameRu": "Средиземноморские травы",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "svezhaya-zelen",
+    "nameRu": "Свежая зелень",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "laym-1-sht",
+    "nameRu": "Лайм",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "lavash",
+    "nameRu": "Армянский лаваш",
+    "category": "бакалея",
+    "aliases": [
+      "лаваш",
+      "армянский лаваш",
+      "Лаваш тонкий"
+    ]
+  },
+  {
+    "slug": "svinye-rebra",
+    "nameRu": "Свиные ребра",
+    "category": "мясо",
+    "aliases": [
+      "Ребра свиные",
+      "Свиные ребрышки"
+    ]
+  },
+  {
+    "slug": "kopchenosti",
+    "nameRu": "Копчености",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "suhari-rzhanye",
+    "nameRu": "Сухари ржаные",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "baranina",
+    "nameRu": "Баранина",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "telyatina",
+    "nameRu": "Телятина",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "pasta-nam-prik-pao",
+    "nameRu": "Паста Нам Прик Пао",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "rybnye-obrezki-golovy-plavniki",
+    "nameRu": "Рыбные обрезки, головы, плавники",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "perets-ostryy-molotyy",
+    "nameRu": "Перец острый молотый",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "schavel-svezhiy",
+    "nameRu": "Щавель свежий",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "sous-tkemali",
+    "nameRu": "Соус ткемали",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "kolbaski-ohotnichi",
+    "nameRu": "Колбаски охотничьи",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "perets-krasnyy-zhguchiy",
+    "nameRu": "Перец красный острый",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "krutony",
+    "nameRu": "Крутоны",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "pasta-tom-yam",
+    "nameRu": "Паста «Том Ям»",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "supovoy-nabor",
+    "nameRu": "Суповой набор",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "lisichki",
+    "nameRu": "Лисички",
+    "category": "грибы",
+    "aliases": []
+  },
+  {
+    "slug": "morskoy-kokteyl-zamorozhennyy",
+    "nameRu": "Морской коктейль замороженный",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "miso",
+    "nameRu": "Мисо",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "matsoni",
+    "nameRu": "Мацони",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "sosiska",
+    "nameRu": "Сосиски",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "kurinye-serdechki",
+    "nameRu": "Куриные сердечки",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "tarhun",
+    "nameRu": "Тархун свежий",
+    "category": "зелень",
+    "aliases": [
+      "Маленький пучок тархуна"
+    ]
+  },
+  {
+    "slug": "sous-satsebeli",
+    "nameRu": "Соус сацебели",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "utka",
+    "nameRu": "Утка",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "priprava-5-spetsiy-five-spice",
+    "nameRu": "Приправа «5 специй»",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "svinaya-lopatka",
+    "nameRu": "Свиная лопатка",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "toplenoe-maslo",
+    "nameRu": "Топленое масло",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "rybnoe-file",
+    "nameRu": "Рыбное филе",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "ayva",
+    "nameRu": "Айва",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "vustershirskiy-sous",
+    "nameRu": "Соус вустерширский",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "kurinye-zheludochki",
+    "nameRu": "Куриные желудочки",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "sibas",
+    "nameRu": "Сибас",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "sous-narsharab",
+    "nameRu": "Соус наршараб",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "karbonad",
+    "nameRu": "Карбонад",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "lepeshki",
+    "nameRu": "Лепешки",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "makaronnoe-testo-dlya-lazani",
+    "nameRu": "Макаронное тесто для лазаньи",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "chesnochnyy-poroshok",
+    "nameRu": "Чесночный порошок",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "hlebnaya-kroshka",
+    "nameRu": "Хлебная крошка",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "edam",
+    "nameRu": "Эдам",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "anchousy",
+    "nameRu": "Анчоусы",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "govyazhiy-yazyk",
+    "nameRu": "Говяжий язык",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "buzhenina",
+    "nameRu": "Буженина",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "gorchichnoe-maslo",
+    "nameRu": "Горчичное масло",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "bobovye-rostki",
+    "nameRu": "Бобовые ростки",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "lnyanoe-maslo",
+    "nameRu": "Масло льняное",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "daykon",
+    "nameRu": "Дайкон",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "ochischennye-semena-podsolnechnika",
+    "nameRu": "Очищенные семена подсолнечника",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "rybnye-konservy",
+    "nameRu": "Рыбные консервы",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "krabovoe-myaso",
+    "nameRu": "Крабовое мясо",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "sous-ekzoticheskiy",
+    "nameRu": "Соус экзотический",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "sous-ustrichnyy",
+    "nameRu": "Соус устричный",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "sous-chili-sladkiy",
+    "nameRu": "Соус сладкий чили",
+    "category": "соусы",
+    "aliases": [
+      "Сладкий соус чили"
+    ]
+  },
+  {
+    "slug": "kress",
+    "nameRu": "Кресс салат",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "hleb-dlya-sendvichey",
+    "nameRu": "Хлеб для сэндвичей",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "kusochki-ananasa-v-soke-del-monte",
+    "nameRu": "Кусочки ананаса в соке",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "perets-krasnyy-hlopyami",
+    "nameRu": "Перец красный хлопьями",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "hleb-rzhanoy",
+    "nameRu": "Хлеб ржаной",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "priprava-dlya-ryby",
+    "nameRu": "Приправа для рыбы",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "pasta-tahini",
+    "nameRu": "Паста тахини",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "maslo-toplenoe",
+    "nameRu": "Масло топленое",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "sparzha-zelenaya",
+    "nameRu": "Спаржа зеленая",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "file-schuki",
+    "nameRu": "Филе щуки",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "moyva",
+    "nameRu": "Мойва",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "bulochki-briosh",
+    "nameRu": "Булочки бриошь",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "hleb-borodinskiy",
+    "nameRu": "Хлеб бородинский",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "svinye-nozhki",
+    "nameRu": "Свиные ножки",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "myaso-na-kostochke",
+    "nameRu": "Мясо на косточке",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "karkade",
+    "nameRu": "Каркаде",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "fistashki",
+    "nameRu": "Фисташки",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "tsyplenok",
+    "nameRu": "Цыпленок",
+    "category": "мясо",
+    "aliases": [
+      "небольшой цыпленок"
+    ]
+  },
+  {
+    "slug": "tsyplenok-tushka",
+    "nameRu": "Цыпленок тушка",
+    "category": "мясо",
+    "aliases": [
+      "тушка цыпленка",
+      "цыплята тушки"
+    ]
+  },
+  {
+    "slug": "mash",
+    "nameRu": "Маш",
+    "category": "бакалея",
+    "aliases": [
+      "маш тм «националь»"
+    ]
+  },
+  {
+    "slug": "morskie-grebeshki",
+    "nameRu": "Морские гребешки",
+    "category": "рыба",
+    "aliases": [
+      "морские гребешки тм «магуро»"
+    ]
+  },
+  {
+    "slug": "granat",
+    "nameRu": "Гранат",
+    "category": "фрукты",
+    "aliases": [
+      "гранатные зерна",
+      "зерна граната"
+    ]
+  },
+  {
+    "slug": "perets-ostryy",
+    "nameRu": "Перец острый",
+    "category": "овощи",
+    "aliases": [
+      "перец острый зеленый",
+      "перец чили",
+      "Перец красный острый"
+    ]
+  },
+  {
+    "slug": "krolik",
+    "nameRu": "Кролик",
+    "category": "мясо",
+    "aliases": [
+      "кролик задняя часть"
+    ]
+  },
+  {
+    "slug": "syr-tverdyy",
+    "nameRu": "Сыр твердый",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "kunzhut",
+    "nameRu": "Кунжут",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "limonnyy-sok",
+    "nameRu": "Лимонный сок",
+    "category": "прочее",
+    "aliases": [
+      "Лимонный сок ТМ SICILIA"
+    ]
+  },
+  {
+    "slug": "tomatnyy-sous",
+    "nameRu": "Томатный соус",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "uksus-belyy-vinnyy",
+    "nameRu": "Уксус белый винный",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "sol-morskaya",
+    "nameRu": "Соль морская",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "maslo-olivkovoe",
+    "nameRu": "Масло оливковое",
+    "category": "бакалея",
+    "aliases": [
+      "Оливковое масло",
+      "Оливковое масло Extra Virgin"
+    ]
+  },
+  {
+    "slug": "uksus-yablochnyy",
+    "nameRu": "Уксус яблочный",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "syr-edam-gauda",
+    "nameRu": "Сыр (\"Эдам\", \"Гауда\")",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "razryhlitel",
+    "nameRu": "Разрыхлитель",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "soda",
+    "nameRu": "Сода",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "bazilik-sushenyy",
+    "nameRu": "Базилик сушеный",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "salat-listovoy",
+    "nameRu": "Салат листовой",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "chernyy-ili-dushistyy-molotyy-perets",
+    "nameRu": "Черный или душистый молотый перец",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "sushenaya-petrushka",
+    "nameRu": "Сушеная петрушка",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "sushenyy-ukrop",
+    "nameRu": "Сушеный укроп",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "koriandr-molotyy",
+    "nameRu": "Кориандр молотый",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "perets-dushistyy",
+    "nameRu": "Перец душистый",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "zira",
+    "nameRu": "Зира",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "fasol-belaya",
+    "nameRu": "Фасоль белая",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "kurkuma",
+    "nameRu": "Куркума",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "sushenyy-chesnok",
+    "nameRu": "Сушеный чеснок",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "griby-veshenki",
+    "nameRu": "Грибы вешенки",
+    "category": "грибы",
+    "aliases": []
+  },
+  {
+    "slug": "pasta-karri",
+    "nameRu": "Паста карри",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "kokosovoe-moloko",
+    "nameRu": "Кокосовое молоко",
+    "category": "молочное",
+    "aliases": [
+      "Кокосовое молоко 17"
+    ]
+  },
+  {
+    "slug": "lapsha-soba",
+    "nameRu": "Лапша соба",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "vino-krasnoe",
+    "nameRu": "Вино красное",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "tomaty-v-sobstvennom-soku",
+    "nameRu": "Томаты в собственном соку",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "syr-parmezan",
+    "nameRu": "Сыр Пармезан",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "chernyy-molotyy-perets",
+    "nameRu": "Черный молотый перец",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "sladkiy-perets",
+    "nameRu": "Сладкий перец",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "maslo-podsolnechnoe",
+    "nameRu": "Масло подсолнечное",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "karri",
+    "nameRu": "Карри",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "luk-salatnyy",
+    "nameRu": "Лук салатный",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "vetchina",
+    "nameRu": "Ветчина",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "pomidory-cherri",
+    "nameRu": "Помидоры черри",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "smetana-15",
+    "nameRu": "Сметана 15%",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "chesnok-1-zubchik",
+    "nameRu": "Чеснок 1 зубчик",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "chernyy-perets-molotyy",
+    "nameRu": "Черный перец молотый",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "slivki-33",
+    "nameRu": "Сливки 33%",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "saharnaya-pudra",
+    "nameRu": "Сахарная пудра",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "tomaty-cherri-po-zhelaniyu",
+    "nameRu": "Томаты черри",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "chesnok-2-zubchik",
+    "nameRu": "Чеснок 2 зубчик",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "kurinoe-bedro-kopchenoe",
+    "nameRu": "Куриное бедро (копченое)",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "struchkovaya-fasol-zamorozhennaya",
+    "nameRu": "Стручковая фасоль замороженная",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "syr-gollandskiy",
+    "nameRu": "Сыр «голландский»",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "chesnok-3-zubchik",
+    "nameRu": "Чеснок 3 зубчик",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "kuraga",
+    "nameRu": "Курага",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "tvorozhnyy-syr",
+    "nameRu": "Творожный сыр",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "ananasy",
+    "nameRu": "Ананасы",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "razryhlitel-testa",
+    "nameRu": "Разрыхлитель теста",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "spetsii",
+    "nameRu": "Специи",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "chesnok-4-zubchik",
+    "nameRu": "Чеснок 4 зубчик",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "tunets-rublenyy-v-sobstvennom-soku-1-banka",
+    "nameRu": "Тунец рубленый в собственном соку",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "syr-feta",
+    "nameRu": "Сыр фета",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "tunets-kusochkami-v-sobstvennom-soku-1-banka",
+    "nameRu": "Тунец кусочками в собственном соку",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "koriandr",
+    "nameRu": "Кориандр",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "tomaty-vyalenye",
+    "nameRu": "Томаты вяленые",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "plavlenyy-syr",
+    "nameRu": "Плавленый сыр",
+    "category": "молочное",
+    "aliases": [
+      "Сыр плавленый"
+    ]
+  },
+  {
+    "slug": "smetana-10",
+    "nameRu": "Сметана 10%",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "sushenye-travy-1-schepotka",
+    "nameRu": "Сушеные травы",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "chesnok-5-zubchik",
+    "nameRu": "Чеснок 5 зубчик",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "kurinyy-okorochok-kopchenyy",
+    "nameRu": "Куриный окорочок (копченый)",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "kabachok-tsukini",
+    "nameRu": "Кабачок цукини",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "orehi-2",
+    "nameRu": "Орехи",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "uksus-iz-belogo-vina",
+    "nameRu": "Уксус из белого вина",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "timyan-4-vetochka",
+    "nameRu": "Тимьян 4 веточка",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "slivki-20-po-zhelaniyu",
+    "nameRu": "Сливки 20%",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "chernosliv",
+    "nameRu": "Чернослив",
+    "category": "бакалея",
+    "aliases": [
+      "Чернослив без косточек"
+    ]
+  },
+  {
+    "slug": "tigrovye-krevetki",
+    "nameRu": "Тигровые креветки",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "svinaya-grudinka",
+    "nameRu": "Свиная грудинка",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "drozhzhevoe-testo-sdobnoe",
+    "nameRu": "Тесто дрожжевое",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "mintay",
+    "nameRu": "Минтай",
+    "category": "рыба",
+    "aliases": [
+      "Минтай филе"
+    ]
+  },
+  {
+    "slug": "karp",
+    "nameRu": "Карп",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "pechene",
+    "nameRu": "Печенье",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "molochnyy-shokolad",
+    "nameRu": "Шоколад молочный",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "pechen-treski",
+    "nameRu": "Печень трески",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "grechnevaya-lapsha",
+    "nameRu": "Гречневая лапша",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "kopchenyy-losos",
+    "nameRu": "Копченый лосось",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "seld-slabosolenaya",
+    "nameRu": "Сельдь слабосоленая",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "doktorskaya-kolbasa",
+    "nameRu": "Колбаса докторская",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "neostraya-gorchitsa",
+    "nameRu": "Горчица неострая",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "chiabatta-2-lomtik",
+    "nameRu": "Чиабатта",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "sguschennoe-moloko",
+    "nameRu": "Сгущенное молоко",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "suluguni",
+    "nameRu": "Сулугуни",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "slabosolenyy-losos",
+    "nameRu": "Слабосоленый лосось",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "perepelinoe-yaytso",
+    "nameRu": "Перепелиное яйцо",
+    "category": "молочное",
+    "aliases": [
+      "Яйца перепелиные",
+      "Яйцо перепелиное"
+    ]
+  },
+  {
+    "slug": "morskaya-sol",
+    "nameRu": "Морская соль",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "yablochnyy-uksus",
+    "nameRu": "Яблочный уксус",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "smetana-30",
+    "nameRu": "Сметана 30%",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "tsedra",
+    "nameRu": "Цедра",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "suhie-drozhzhi",
+    "nameRu": "Сухие дрожжи",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "marinovannyy-imbir",
+    "nameRu": "Имбирь маринованный",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "grusha",
+    "nameRu": "Груша",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "mindal",
+    "nameRu": "Миндаль",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "badyan-zvezdochka-2",
+    "nameRu": "Бадьян (звездочка)",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "klyukva",
+    "nameRu": "Клюква",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "chesnok-1-golovka",
+    "nameRu": "Чеснок 1 головка",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "kurinyy-okorochok",
+    "nameRu": "Куриный окорочок",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "imbir-2",
+    "nameRu": "Имбирь",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "salat-aysberg",
+    "nameRu": "Салат «айсберг»",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "priprava-dlya-koreyskih-salatov",
+    "nameRu": "Приправа для корейских салатов",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "forel",
+    "nameRu": "Форель",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "ukrop-1-vetochka",
+    "nameRu": "Укроп 1 веточка",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "med-po-zhelaniyu",
+    "nameRu": "Мед",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "tvorog-9",
+    "nameRu": "Творог 9%",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "syr-adygeyskiy",
+    "nameRu": "Сыр адыгейский",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "adzhika",
+    "nameRu": "Аджика",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "krasnaya-fasol",
+    "nameRu": "Красная фасоль",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "perets-chili-po-zhelaniyu",
+    "nameRu": "Перец чили",
+    "category": "овощи",
+    "aliases": [
+      "Перец чили зеленый",
+      "Перец чили красный"
+    ]
+  },
+  {
+    "slug": "tverdyy-syr-po-zhelaniyu",
+    "nameRu": "Твердый сыр",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "tykvennoe-pyure",
+    "nameRu": "Тыквенное пюре",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "arahis",
+    "nameRu": "Арахис",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "sushenaya-klyukva",
+    "nameRu": "Сушеная клюква",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "vanilin",
+    "nameRu": "Ванилин",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "treska",
+    "nameRu": "Треска",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "temnyy-shokolad",
+    "nameRu": "Темный шоколад",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "shokoladnyy-sirop-po-zhelaniyu",
+    "nameRu": "Шоколадный сироп",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "pechene-oreo",
+    "nameRu": "Печенье Oreo",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "perets-zhguchiy",
+    "nameRu": "Перец жгучий",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "kedrovye-orehi",
+    "nameRu": "Кедровые орехи",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "saharnoe-pechene",
+    "nameRu": "Печенье сахарное",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "semena-podsolnechnye",
+    "nameRu": "Семена подсолнечные",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "apelsinovyy-sok",
+    "nameRu": "Сок апельсиновый",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "dzhem",
+    "nameRu": "Джем",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "klubnika-zamorozhennaya",
+    "nameRu": "Клубника замороженная",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "brynza",
+    "nameRu": "Брынза",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "yablochnyy-uksus-9",
+    "nameRu": "Яблочный уксус 9%",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "chesnok-2-golovka",
+    "nameRu": "Чеснок 2 головка",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "stolovyy-uksus-9",
+    "nameRu": "Столовый уксус 9%",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "nutella",
+    "nameRu": "Нутелла",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "lapsha-udon",
+    "nameRu": "Лапша удон",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "stolovyy-uksus",
+    "nameRu": "Столовый уксус",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "zamorozhennaya-vishnya",
+    "nameRu": "Вишня замороженная",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "ikra-krasnaya",
+    "nameRu": "Икра красная",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "slabosolenaya-forel",
+    "nameRu": "Слабосоленая форель",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "gorkiy-shokolad",
+    "nameRu": "Шоколад горький",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "oregano",
+    "nameRu": "Орегано свежий",
+    "category": "зелень",
+    "aliases": [
+      "Небольшой пучок свежего орегано"
+    ]
+  },
+  {
+    "slug": "pomidory-v-sobstvennom-soku",
+    "nameRu": "Помидоры в собственном соку",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "timyan",
+    "nameRu": "Тимьян",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "belye-griby",
+    "nameRu": "Белые грибы",
+    "category": "грибы",
+    "aliases": []
+  },
+  {
+    "slug": "govyazhya-pechen",
+    "nameRu": "Говяжья печень",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "slivki-10",
+    "nameRu": "Сливки 10%",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "losinoe-myaso",
+    "nameRu": "Лосиное мясо",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "ukrop-3-vetochka",
+    "nameRu": "Укроп 3 веточка",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "ogurtsy-marinovannye",
+    "nameRu": "Огурцы маринованные",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "ogurtsy-solenye",
+    "nameRu": "Огурцы соленые",
+    "category": "бакалея",
+    "aliases": [
+      "Соленые огурцы"
+    ]
+  },
+  {
+    "slug": "masliny",
+    "nameRu": "Маслины",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "svekla-varenaya",
+    "nameRu": "Свекла вареная",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "ogurtsy-konservirovannye",
+    "nameRu": "Огурцы консервированные",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "rastitelnoe-maslo-nerafinirovannoe",
+    "nameRu": "Масло подсолнечное ароматное",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "slivki-35",
+    "nameRu": "Сливки 35%",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "kolbasa-varenaya",
+    "nameRu": "Колбаса вареная",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "ukrop-svezhiy",
+    "nameRu": "Укроп свежий",
+    "category": "зелень",
+    "aliases": [
+      "Маленький пучок укропа"
+    ]
+  },
+  {
+    "slug": "brokkoli-svezhaya",
+    "nameRu": "Брокколи свежая",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "griby-sushenye",
+    "nameRu": "Грибы сушеные",
+    "category": "грибы",
+    "aliases": []
+  },
+  {
+    "slug": "kinza-svezhaya",
+    "nameRu": "Кинза свежая",
+    "category": "зелень",
+    "aliases": [
+      "Кинза 2 веточка",
+      "Кинза"
+    ]
+  },
+  {
+    "slug": "griby-shiitake",
+    "nameRu": "Грибы шиитаке",
+    "category": "грибы",
+    "aliases": []
+  },
+  {
+    "slug": "sahar-korichnevyy",
+    "nameRu": "Сахар коричневый",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "kunzhutnoe-maslo",
+    "nameRu": "Кунжутное масло",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "griby-belye",
+    "nameRu": "Грибы белые",
+    "category": "грибы",
+    "aliases": []
+  },
+  {
+    "slug": "perets-bolgarskiy-krasnyy",
+    "nameRu": "Перец болгарский красный",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "ukrop-sushenyy",
+    "nameRu": "Укроп сушеный",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "govyadina-na-kosti",
+    "nameRu": "Говядина на кости",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "salo-kopchenoe-s-myasnymi-prosloykami",
+    "nameRu": "Сало копченое с мясными прослойками",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "kolbaski-syrokopchenye",
+    "nameRu": "Колбаски сырокопченые",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "suhoy-timyan",
+    "nameRu": "Сухой тимьян",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "kartofel-molodoy",
+    "nameRu": "Картофель молодой",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "perets-chernyy-svezhemolotyy",
+    "nameRu": "Перец черный свежемолотый",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "sol-krupnogo-pomola",
+    "nameRu": "Соль крупного помола",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "griby-belye-suhie",
+    "nameRu": "Грибы белые сухие",
+    "category": "грибы",
+    "aliases": []
+  },
+  {
+    "slug": "paprika-sladkaya",
+    "nameRu": "Паприка сладкая",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "tmin",
+    "nameRu": "Тмин",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "uksus-9",
+    "nameRu": "Уксус 9%",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "rybnyy-sous",
+    "nameRu": "Соус рыбный",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "moloko-kokosovoe",
+    "nameRu": "Молоко кокосовое",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "perets-bolgarskiy-zheltyy",
+    "nameRu": "Перец болгарский желтый",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "selderey-stebli",
+    "nameRu": "Сельдерей стебли",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "psheno",
+    "nameRu": "Пшено",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "perets-dushistyy-molotyy",
+    "nameRu": "Перец душистый молотый",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "myata",
+    "nameRu": "Мята",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "tonkaya-lapsha",
+    "nameRu": "Тонкая лапша",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "grudinka",
+    "nameRu": "Грудинка",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "kapusta-tsvetnaya",
+    "nameRu": "Капуста цветная",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "tmin-molotyy",
+    "nameRu": "Тмин молотый",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "timyan-sushenyy",
+    "nameRu": "Тимьян сушеный",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "shampinony-svezhie",
+    "nameRu": "Шампиньоны свежие",
+    "category": "грибы",
+    "aliases": []
+  },
+  {
+    "slug": "muskatnyy-oreh-molotyy",
+    "nameRu": "Мускатный орех молотый",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "selderey-koren",
+    "nameRu": "Сельдерей корень",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "suhari",
+    "nameRu": "Сухари",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "rozmarin-sushenyy",
+    "nameRu": "Розмарин сушеный",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "oregano-sushenyy",
+    "nameRu": "Орегано сушеный",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "sushenyy-timyan",
+    "nameRu": "Сушеный тимьян",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "mayoran",
+    "nameRu": "Майоран",
+    "category": "зелень",
+    "aliases": [
+      "Майоран сушеный"
+    ]
+  },
+  {
+    "slug": "losos",
+    "nameRu": "Лосось",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "timyan-svezhiy",
+    "nameRu": "Тимьян свежий",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "kolbasa-kopchenaya",
+    "nameRu": "Колбаса копченая",
+    "category": "прочее",
+    "aliases": [
+      "Копченая колбаса"
+    ]
+  },
+  {
+    "slug": "okorok",
+    "nameRu": "Окорок свиной",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "losos-file",
+    "nameRu": "Лосось филе",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "ryba-belaya-file",
+    "nameRu": "Рыба белая филе",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "okun",
+    "nameRu": "Окунь",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "perets-chili-molotyy",
+    "nameRu": "Перец чили молотый",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "gorchitsa-s-zernami",
+    "nameRu": "Горчица с зернами",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "griby-solomennye-konservirovannye",
+    "nameRu": "Грибы соломенные консервированные",
+    "category": "грибы",
+    "aliases": []
+  },
+  {
+    "slug": "griby-lesnye",
+    "nameRu": "Грибы лесные",
+    "category": "грибы",
+    "aliases": []
+  },
+  {
+    "slug": "rebra-svinye-kopchenye",
+    "nameRu": "Ребра свиные копченые",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "griby-solomennye",
+    "nameRu": "Грибы соломенные",
+    "category": "грибы",
+    "aliases": []
+  },
+  {
+    "slug": "luk-belyy",
+    "nameRu": "Лук белый",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "tamarindovaya-pasta",
+    "nameRu": "Тамариндовая паста",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "kokosovye-slivki",
+    "nameRu": "Кокосовые сливки",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "treska-file",
+    "nameRu": "Треска филе",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "kambala-file",
+    "nameRu": "Камбала филе",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "fenhel",
+    "nameRu": "Фенхель",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "pomidory-konservirovannye",
+    "nameRu": "Помидоры консервированные",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "vino-beloe-suhoe",
+    "nameRu": "Вино белое сухое",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "svezhiy-timyan",
+    "nameRu": "Свежий тимьян",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "yaichnye-zheltki",
+    "nameRu": "Яичные желтки",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "kapusta-pekinskaya",
+    "nameRu": "Капуста пекинская",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "risovaya-lapsha",
+    "nameRu": "Рисовая лапша",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "oreh-muskatnyy",
+    "nameRu": "Орех мускатный",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "imbir-molotyy",
+    "nameRu": "Имбирь молотый",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "limonnaya-tsedra",
+    "nameRu": "Лимонная цедра",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "lapsha-dlya-lagmana",
+    "nameRu": "Лапша для лагмана",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "indeyka-golen",
+    "nameRu": "Индейка голень",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "tomatnyy-sok",
+    "nameRu": "Сок томатный",
+    "category": "прочее",
+    "aliases": [
+      "Томатный сок"
+    ]
+  },
+  {
+    "slug": "chesnok-molodoy",
+    "nameRu": "Чеснок молодой",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "koriandr-semena",
+    "nameRu": "Кориандр семена",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "luk-krasnyy",
+    "nameRu": "Лук красный",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "risovyy-uksus",
+    "nameRu": "Уксус рисовый",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "perets-bolgarskiy-zelenyy",
+    "nameRu": "Перец болгарский зеленый",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "barbaris",
+    "nameRu": "Барбарис",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "kuritsa-domashnyaya",
+    "nameRu": "Курица домашняя",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "griby-belye-zamorozhennye",
+    "nameRu": "Грибы белые замороженные",
+    "category": "грибы",
+    "aliases": []
+  },
+  {
+    "slug": "syr-s-goluboy-plesenyu",
+    "nameRu": "Сыр с голубой плесенью",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "schavel",
+    "nameRu": "Щавель",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "opyata",
+    "nameRu": "Опята",
+    "category": "грибы",
+    "aliases": []
+  },
+  {
+    "slug": "kapusta-morskaya-sushenaya",
+    "nameRu": "Капуста морская сушеная",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "vino-beloe",
+    "nameRu": "Вино белое",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "midii",
+    "nameRu": "Мидии",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "semga-svezhaya",
+    "nameRu": "Семга свежая",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "perets-krasnyy-ostryy-molotyy",
+    "nameRu": "Перец красный острый молотый",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "maskarpone",
+    "nameRu": "Маскарпоне",
+    "category": "молочное",
+    "aliases": [
+      "Сыр маскарпоне"
+    ]
+  },
+  {
+    "slug": "semga-file-na-kozhe",
+    "nameRu": "Семга филе на коже",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "goroshek-zelenyy-zamorozhennyy",
+    "nameRu": "Горошек зеленый замороженный",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "tkemali",
+    "nameRu": "Ткемали",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "griby-zamorozhennye",
+    "nameRu": "Грибы замороженные",
+    "category": "грибы",
+    "aliases": []
+  },
+  {
+    "slug": "losos-steyki",
+    "nameRu": "Лосось стейки",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "perets-belyy-molotyy",
+    "nameRu": "Перец белый молотый",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "smetana-20",
+    "nameRu": "Сметана 20%",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "bazilik-svezhiy",
+    "nameRu": "Базилик свежий",
+    "category": "зелень",
+    "aliases": [
+      "Маленький пучок красного базилика"
+    ]
+  },
+  {
+    "slug": "shafran-imeretinskiy",
+    "nameRu": "Шафран имеретинский",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "drozhzhi-svezhie",
+    "nameRu": "Дрожжи свежие",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "farsh-baranina-i-govyadina",
+    "nameRu": "Фарш (баранина и говядина)",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "vinogradnye-listya",
+    "nameRu": "Виноградные листья",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "bulochki-s-kunzhutom",
+    "nameRu": "Булочки с кунжутом",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "gorchitsa-dizhonskaya",
+    "nameRu": "Горчица дижонская",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "syr-plastinkami",
+    "nameRu": "Сыр пластинками",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "kapusta-morskaya",
+    "nameRu": "Капуста морская",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "kapusta-tsvetnaya-zamorozhennaya",
+    "nameRu": "Капуста цветная замороженная",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "sudak",
+    "nameRu": "Судак",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "midii-v-rakovinah",
+    "nameRu": "Мидии в раковинах",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "chesnok-sushenyy",
+    "nameRu": "Чеснок сушеный",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "chernyy-perets",
+    "nameRu": "Черный перец",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "bekon-syrokopchenyy",
+    "nameRu": "Бекон сырокопченый",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "kalmary",
+    "nameRu": "Кальмары",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "paprika-kopchenaya",
+    "nameRu": "Паприка копченая",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "kolbasa-polukopchenaya",
+    "nameRu": "Колбаса полукопченая",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "indeyka-file",
+    "nameRu": "Индейка филе",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "krahmal",
+    "nameRu": "Крахмал",
+    "category": "бакалея",
+    "aliases": [
+      "Картофельный крахмал",
+      "Кукурузный крахмал"
+    ]
+  },
+  {
+    "slug": "gazirovannaya-voda",
+    "nameRu": "Газированная вода",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "syr-gauda",
+    "nameRu": "Сыр гауда",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "tushenka",
+    "nameRu": "Тушенка",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "vino-krasnoe-suhoe",
+    "nameRu": "Вино красное сухое",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "svinaya-pechen",
+    "nameRu": "Свиная печень",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "salo",
+    "nameRu": "Сало",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "osheek",
+    "nameRu": "Ошеек",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "travy-suhie",
+    "nameRu": "Травы сухие",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "redka",
+    "nameRu": "Редька",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "kurdyuchnoe-salo",
+    "nameRu": "Курдючное сало",
+    "category": "мясо",
+    "aliases": [
+      "Курдючный жир"
+    ]
+  },
+  {
+    "slug": "kalmary-zamorozhennye",
+    "nameRu": "Кальмары замороженные",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "gorbusha-v-sobstvennom-soku",
+    "nameRu": "Горбуша в собственном соку",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "kapusta-krasnokochannaya",
+    "nameRu": "Капуста краснокочанная",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "salatnyy-miks",
+    "nameRu": "Салатный микс",
+    "category": "овощи",
+    "aliases": [
+      "Салатная смесь"
+    ]
+  },
+  {
+    "slug": "mayonez-s-limonnym-sokom-tm-maheev",
+    "nameRu": "Майонез с лимонным соком",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "mayonez-sloboda-legkiy",
+    "nameRu": "Майонез легкий",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "gretskie-orehi-rublenye",
+    "nameRu": "Грецкие орехи рубленые",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "gorchitsa-frantsuzskaya",
+    "nameRu": "Горчица французская",
+    "category": "соусы",
+    "aliases": [
+      "Французская горчица"
+    ]
+  },
+  {
+    "slug": "kunzhut-chernyy",
+    "nameRu": "Кунжут черный",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "feta",
+    "nameRu": "Фета",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "mandariny",
+    "nameRu": "Мандарины",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "osminog",
+    "nameRu": "Осьминог",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "yabloki-antonovka",
+    "nameRu": "Яблоки антоновка",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "uksus-balzamicheskiy",
+    "nameRu": "Уксус бальзамический",
+    "category": "соусы",
+    "aliases": [
+      "Бальзамический уксус"
+    ]
+  },
+  {
+    "slug": "shampinony-marinovannye",
+    "nameRu": "Шампиньоны маринованные",
+    "category": "грибы",
+    "aliases": []
+  },
+  {
+    "slug": "semga-solenaya",
+    "nameRu": "Семга соленая",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "sol-gimalayskaya",
+    "nameRu": "Соль гималайская",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "mayoneznyy-sous-sloboda-postnyy",
+    "nameRu": "Майонезный соус постный",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "shproty",
+    "nameRu": "Шпроты",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "pomidory-burye",
+    "nameRu": "Помидоры бурые",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "syr-goluboy",
+    "nameRu": "Сыр голубой",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "kuritsa-kopchenaya",
+    "nameRu": "Курица копченая",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "salat-frisse",
+    "nameRu": "Салат фриссе",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "yabloki-zelenye",
+    "nameRu": "Яблоки зеленые",
+    "category": "фрукты",
+    "aliases": []
+  },
+  {
+    "slug": "travy-aromatnye",
+    "nameRu": "Травы ароматные",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "morkov-molodaya",
+    "nameRu": "Морковь молодая",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "perets-chili-hlopyami",
+    "nameRu": "Перец чили хлопьями",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "pomidory-vyalenye",
+    "nameRu": "Помидоры вяленые",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "gorchitsa-russkaya",
+    "nameRu": "Горчица русская",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "uksus-na-estragone",
+    "nameRu": "Уксус на эстрагоне",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "redka-zelenaya",
+    "nameRu": "Редька зеленая",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "ikra-lososya",
+    "nameRu": "Икра лосося",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "ikra-treski",
+    "nameRu": "Икра трески",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "semga",
+    "nameRu": "Семга",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "syr-rossiyskiy",
+    "nameRu": "Сыр российский",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "mayonez-olivkovyy",
+    "nameRu": "Майонез оливковый",
+    "category": "соусы",
+    "aliases": [
+      "Оливковый майонез ТМ «МахеевЪ»",
+      "Майонез «Слобода» Оливковый"
+    ]
+  },
+  {
+    "slug": "hleb",
+    "nameRu": "Хлеб",
+    "category": "прочее",
+    "aliases": [
+      "Хлеб белый",
+      "Хлеб белый круглый"
+    ]
+  },
+  {
+    "slug": "salat-kitayskiy",
+    "nameRu": "Салат китайский",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "zheltye-pomidory",
+    "nameRu": "Желтые помидоры",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "svanskaya-sol",
+    "nameRu": "Сванская соль",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "portobello",
+    "nameRu": "Портобелло",
+    "category": "грибы",
+    "aliases": []
+  },
+  {
+    "slug": "malenkiy-sushenyy-perets-chili",
+    "nameRu": "Маленький сушеный перец чили",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "klyukva-vyalenaya",
+    "nameRu": "Клюква вяленая",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "perets-belyy",
+    "nameRu": "Перец белый",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "syr-koziy-tverdyy",
+    "nameRu": "Сыр козий твердый",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "molodaya-svekla",
+    "nameRu": "Свекла молодая",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "skumbriya-holodnogo-kopcheniya",
+    "nameRu": "Скумбрия холодного копчения",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "salat-korn",
+    "nameRu": "Салат корн",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "morskaya-sol-krupnogo-pomola",
+    "nameRu": "Морская соль крупного помола",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "kolbasa-syrokopchenaya",
+    "nameRu": "Колбаса сырокопченая",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "gorchitsa-ostraya",
+    "nameRu": "Горчица острая",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "krevetki-ochischennye",
+    "nameRu": "Креветки очищенные",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "syr-slivochnyy",
+    "nameRu": "Сыр сливочный",
+    "category": "молочное",
+    "aliases": [
+      "Сливочный сыр"
+    ]
+  },
+  {
+    "slug": "losos-slabosolenyy",
+    "nameRu": "Лосось слабосоленый",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "griby-marinovannye",
+    "nameRu": "Грибы маринованные",
+    "category": "грибы",
+    "aliases": []
+  },
+  {
+    "slug": "molodye-listya-salata",
+    "nameRu": "Молодые листья салата",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "kapusta-kolrabi",
+    "nameRu": "Капуста кольраби",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "syr-rokfor",
+    "nameRu": "Сыр рокфор",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "utinaya-grudka",
+    "nameRu": "Утиная грудка",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "shpinat-svezhiy",
+    "nameRu": "Шпинат свежий",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "krevetki-tigrovye",
+    "nameRu": "Креветки тигровые",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "salat-romano",
+    "nameRu": "Салат романо",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "mindal-zharenyy",
+    "nameRu": "Миндаль жареный",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "yaytsa-kurinye-varenye",
+    "nameRu": "Яйца куриные вареные",
+    "category": "молочное",
+    "aliases": [
+      "Яйца куриные, сваренные вкрутую"
+    ]
+  },
+  {
+    "slug": "syr-tertyy",
+    "nameRu": "Сыр тертый",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "myagkiy-koziy-syr",
+    "nameRu": "Мягкий козий сыр",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "brokkoli-zamorozhennaya",
+    "nameRu": "Брокколи замороженная",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "zhelatin",
+    "nameRu": "Желатин",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "midii-zamorozhennye",
+    "nameRu": "Мидии замороженные",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "skumbriya",
+    "nameRu": "Скумбрия",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "skumbriya-svezhaya",
+    "nameRu": "Скумбрия свежая",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "sheluha-lukovaya",
+    "nameRu": "Шелуха луковая",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "syr-polutverdyy",
+    "nameRu": "Сыр полутвердый",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "kapersy-marinovannye",
+    "nameRu": "Каперсы маринованные",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "pomidory-konservirovannye-v-sobstvennom-soku",
+    "nameRu": "Помидоры консервированные в собственном соку",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "poroshok-chesnochnyy",
+    "nameRu": "Порошок чесночный",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "koritsa-molotaya",
+    "nameRu": "Корица молотая",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "funduk",
+    "nameRu": "Фундук",
+    "category": "бакалея",
+    "aliases": []
+  },
+  {
+    "slug": "paprika-molotaya",
+    "nameRu": "Паприка молотая",
+    "category": "зелень",
+    "aliases": [
+      "Копченая паприка",
+      "Паприка красная",
+      "Паприка красная молотая",
+      "Паприка",
+      "Молотая паприка"
+    ]
+  },
+  {
+    "slug": "indyushachya-pechen",
+    "nameRu": "Индюшачья печень",
+    "category": "мясо",
+    "aliases": []
+  },
+  {
+    "slug": "ikra-sazana",
+    "nameRu": "Икра сазана",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "smes-neskolkih-vidov-pertsa",
+    "nameRu": "Смесь нескольких видов перца",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "perets-svezhemolotyy",
+    "nameRu": "Перец свежемолотый",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "vetchina-varenaya",
+    "nameRu": "Ветчина вареная",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "chesnochnyy-mayonez-tm-maheev",
+    "nameRu": "Чесночный майонез ТМ «МахеевЪ»",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "mayonez-na-perepelinyh-yaytsah-tm-maheev",
+    "nameRu": "Майонез на перепелиных яйцах",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "sychuzhnyy-ferment",
+    "nameRu": "Сычужный фермент",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "tsvetnoy-sladkiy-perets",
+    "nameRu": "Цветной сладкий перец",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "batat",
+    "nameRu": "Батат",
+    "category": "овощи",
+    "aliases": []
+  },
+  {
+    "slug": "spetsii-maksikanskie",
+    "nameRu": "Специи максиканские",
+    "category": "зелень",
+    "aliases": []
+  },
+  {
+    "slug": "forel-ohlazhdennaya",
+    "nameRu": "Форель охлажденная",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "smetana-25",
+    "nameRu": "Сметана 25%",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "salo-s-myasnymi-prosloykami",
+    "nameRu": "Сало с мясными прослойками",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "slivki-15",
+    "nameRu": "Сливки 15%",
+    "category": "молочное",
+    "aliases": []
+  },
+  {
+    "slug": "syr-brest",
+    "nameRu": "Сыр \"Брест",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "syr-koziy-myagkiy",
+    "nameRu": "Сыр козий мягкий",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "kopchenaya-skumbriya",
+    "nameRu": "Скумбрия копченая",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "slabosolenaya-semga",
+    "nameRu": "Слабосоленая семга",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "uksus-70",
+    "nameRu": "Уксус 70%",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "hren",
+    "nameRu": "Хрен",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "ryba-kopchenaya",
+    "nameRu": "Рыба копченая",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "semga-kopchenaya",
+    "nameRu": "Семга копченая",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "ikra-seldi",
+    "nameRu": "Икра сельди",
+    "category": "рыба",
+    "aliases": []
+  },
+  {
+    "slug": "uksusnaya-essentsiya",
+    "nameRu": "Уксусная эссенция",
+    "category": "соусы",
+    "aliases": []
+  },
+  {
+    "slug": "yaichnye-belki",
+    "nameRu": "Яичные белки",
+    "category": "молочное",
+    "aliases": [
+      "Яйца куриные (белки)"
+    ]
+  },
+  {
+    "slug": "kurinoe-file",
+    "nameRu": "Куриное филе",
+    "category": "мясо",
+    "aliases": [
+      "куриное филе тм «петруха»",
+      "филе куриной грудки"
+    ]
+  },
+  {
+    "slug": "zelenyy-luk-pero",
+    "nameRu": "Зеленый лук перо",
+    "category": "овощи",
+    "aliases": [
+      "зеленый лук",
+      "зеленый лук 5 перо"
+    ]
+  },
+  {
+    "slug": "zakvaska",
+    "nameRu": "Закваска",
+    "category": "прочее",
+    "aliases": []
+  },
+  {
+    "slug": "voda",
+    "nameRu": "Вода",
+    "category": "прочее",
+    "aliases": []
+  }
+]

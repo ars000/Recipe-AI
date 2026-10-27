@@ -1,0 +1,73 @@
+<div class="layout">
+  <header class="layout__header">
+    <div class="layout__header-inner">
+      <a class="logo" routerLink="/">
+        <span class="logo__mark">🍳</span>
+        <span class="logo__text">Recipe<span class="logo__accent">AI</span></span>
+      </a>
+      <nav class="layout__nav" aria-label="Главное меню">
+        <a
+          class="layout__nav-link"
+          routerLink="/"
+          routerLinkActive="layout__nav-link--active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Главная</a
+        >
+        <a class="layout__nav-link" routerLink="/fridge" routerLinkActive="layout__nav-link--active"
+          >Продукты</a
+        >
+        <a class="layout__nav-link" routerLink="/recipes" routerLinkActive="layout__nav-link--active"
+          >Рецепты</a
+        >
+        <a class="layout__nav-link" routerLink="/ai" routerLinkActive="layout__nav-link--active">AI-шеф</a>
+        <a class="layout__nav-link" routerLink="/plan" routerLinkActive="layout__nav-link--active">Меню</a>
+        <a class="layout__nav-link" routerLink="/shopping" routerLinkActive="layout__nav-link--active"
+          >Покупки</a
+        >
+        <a class="layout__nav-link" routerLink="/saved" routerLinkActive="layout__nav-link--active"
+          >Избранное</a
+        >
+      </nav>
+      <a mat-flat-button color="primary" class="btn btn--accent layout__cta" routerLink="/fridge"
+        >Мой холодильник</a
+      >
+    </div>
+  </header>
+
+  <main class="layout__main">
+    <router-outlet />
+  </main>
+
+  <footer class="layout__footer">
+    <div class="layout__footer-grid">
+      <div>
+        <div class="logo logo--in-footer">
+          <span class="logo__mark">🍳</span>
+          <span class="logo__text">Recipe<span class="logo__accent">AI</span></span>
+        </div>
+        <p class="layout__footer-about">
+          Сообщество домашних рецептов: подбор по продуктам, AI-идеи и план меню на неделю.
+        </p>
+      </div>
+      <div>
+        <h5>Разделы</h5>
+        <ul>
+          <li><a routerLink="/recipes">Рецепты</a></li>
+          <li><a routerLink="/fridge">Холодильник</a></li>
+          <li><a routerLink="/ai">AI-шеф</a></li>
+          <li><a routerLink="/saved">Избранное</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Популярные теги</h5>
+        <div class="layout__footer-tags">
+          <span class="layout__footer-tag">На завтрак</span>
+          <span class="layout__footer-tag">Второе блюдо</span>
+          <span class="layout__footer-tag">Вегетарианское</span>
+          <span class="layout__footer-tag">Детское</span>
+        </div>
+      </div>
+    </div>
+    <p class="layout__copyright">© {{ year }} Recipe Manager — pet project</p>
+  </footer>
+</div>

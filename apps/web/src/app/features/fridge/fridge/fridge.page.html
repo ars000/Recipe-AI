@@ -1,0 +1,81 @@
+<app-page-hero
+  heading="Категории продуктов"
+  subtitle="Отметьте, что есть дома — как витрина ингредиентов перед подбором рецептов"
+  [breadcrumbs]="[
+    { label: 'Главная', link: '/' },
+    { label: 'Продукты' },
+  ]"
+/>
+
+<div class="page-container">
+<div class="panel page-fridge__panel">
+  <mat-form-field
+    appearance="outline"
+    subscriptSizing="dynamic"
+    class="page-fridge__search form-field--outline"
+  >
+    <mat-label>Поиск продукта</mat-label>
+    <input matInput [(ngModel)]="search" (ngModelChange)="store.search.set($event)" />
+    @if (search) {
+      <button
+        type="button"
+        matSuffix
+        class="page-fridge__search-clear"
+        aria-label="Очистить поиск"
+        (click)="clearSearch()"
+      >
+        ×
+      </button>
+    }
+  </mat-form-field>
+
+  @if (store.loading()) {
+    <div class="loader"><mat-spinner diameter="40" /></div>
+  } @else {
+    @for (group of grouped(); track group.key) {
+      <section class="ingredient-category">
+        <div
+          class="ingredient-category__banner"
+          [style.background-image]="
+            'var(--category-banner-gradient), url(' + group.image + ')'
+          "
+        >
+          <h3>{{ group.label }}</h3>
+          <span>{{ group.items.length }} {{ productCountLabel(group.items.length) }}</span>
+        </div>
+        <div class="ingredient-grid ingredient-grid--wide">
+          @for (item of group.items; track item.id) {
+            <label class="ingredient-grid__chip">
+              <mat-checkbox
+                [checked]="store.isInPantry(item.id)"
+                (change)="store.toggle(item.id)"
+              />
+              {{ pantryLabel(item.nameRu) }}
+            </label>
+          }
+        </div>
+      </section>
+    }
+  }
+
+</div>
+</div>
+
+<div class="page-fridge__dock">
+  <div class="page-fridge__dock-inner">
+    <p class="page-fridge__summary">Выбрано: <strong>{{ store.pickedCount() }}</strong></p>
+    <a mat-flat-button color="primary" class="btn btn--accent" routerLink="/recipes">
+      Подобрать рецепты
+    </a>
+    <button mat-stroked-button class="btn btn--outline" type="button" (click)="openPhotoModal()">
+      Фото холодильника
+    </button>
+  </div>
+</div>
+
+<app-fridge-photo-modal
+  [isOpen]="photoModalOpen()"
+  [ingredients]="store.pantryCatalogIngredients()"
+  (closed)="closePhotoModal()"
+  (confirmed)="onPhotoConfirmed($event)"
+/>

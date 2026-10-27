@@ -1,0 +1,73 @@
+<app-page-hero
+  heading="План меню"
+  subtitle="Распределите рецепты на завтрак, обед и ужин"
+  [breadcrumbs]="[
+    { label: 'Главная', link: '/' },
+    { label: 'Меню' },
+  ]"
+/>
+
+<div class="page-container">
+<div class="panel meal-plan__form">
+  <mat-form-field
+    appearance="outline"
+    subscriptSizing="dynamic"
+    class="form-field--outline"
+  >
+    <mat-label>Рецепт</mat-label>
+    <mat-select [(ngModel)]="selectedRecipeId">
+      @for (r of recipes(); track r.recipeId) {
+        <mat-option [value]="r.recipeId">{{ r.title }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field
+    appearance="outline"
+    subscriptSizing="dynamic"
+    class="form-field--outline"
+  >
+    <mat-label>Приём пищи</mat-label>
+    <mat-select [(ngModel)]="mealType">
+      <mat-option value="breakfast">Завтрак</mat-option>
+      <mat-option value="lunch">Обед</mat-option>
+      <mat-option value="dinner">Ужин</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field
+    appearance="outline"
+    subscriptSizing="dynamic"
+    class="form-field--outline"
+  >
+    <mat-label>Дата</mat-label>
+    <input matInput type="date" [(ngModel)]="date" />
+  </mat-form-field>
+  <button
+    mat-flat-button
+    color="primary"
+    type="button"
+    class="btn btn--accent meal-plan__submit"
+    (click)="add()"
+  >
+    Добавить
+  </button>
+</div>
+
+<div class="panel">
+  <ul class="meal-plan__list">
+    <li class="meal-plan__item meal-plan__item--head" aria-hidden="true">
+      <span class="meal-plan__date">Дата</span>
+      <span class="meal-plan__meal">Приём</span>
+      <span class="meal-plan__recipe">Рецепт</span>
+    </li>
+    @for (e of entries(); track e.id) {
+      <li class="meal-plan__item">
+        <span class="meal-plan__date">{{ e.date | date: 'dd.MM.yyyy' }}</span>
+        <span class="meal-plan__meal">{{ mealLabel(e.mealType) }}</span>
+        <a class="meal-plan__recipe" [routerLink]="['/recipes', e.recipe.id]">{{
+          e.recipe.title
+        }}</a>
+      </li>
+    }
+  </ul>
+</div>
+</div>

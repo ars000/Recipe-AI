@@ -1,0 +1,70 @@
+@forward "rem";
+@use "rem" as *;
+@use "sass:map";
+@use "sass:list";
+
+// Подключение: @use "<path>/breakpoints" as *;
+// Использование: @include media("min", "lg") { … }; rem(24px) → 1.5rem
+
+$sizes: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+/// Макс. ширина основного контента (shell, full-bleed секции) — совпадает с `xl`
+$container-max-width: map.get($sizes, xl);
+
+@function breakpoint($name) {
+  $width: map.get($sizes, $name);
+
+  @if $width == null {
+    @error 'Неизвестный брейкпоинт `#{$name}`. Доступны: #{map.keys($sizes)}';
+  }
+
+  @return $width;
+}
+
+@function next-breakpoint-name($name) {
+  $keys: map.keys($sizes);
+  $index: list.index($keys, $name);
+
+  @if $index == null or $index >= list.length($keys) {
+    @return null;
+  }
+
+  @return list.nth($keys, $index + 1);
+}
+
+/// $minmax: min | max | within
+@mixin media($minmax, $name) {
+  $width: breakpoint($name);
+
+  @if $minmax == min {
+    @media only screen and (min-width: $width) {
+      @content;
+    }
+  } @else if $minmax == max {
+    @media only screen and (width <= calc(#{$width} - 0.02px)) {
+      @content;
+    }
+  } @else if $minmax == within {
+    $next-name: next-breakpoint-name($name);
+
+    @if $next-name {
+      $upper: breakpoint($next-name);
+
+      @media only screen and (min-width: $width) and (width <= calc(#{$upper} - 0.02px)) {
+        @content;
+      }
+    } @else {
+      @media only screen and (min-width: $width) {
+        @content;
+      }
+    }
+  } @else {
+    @error 'Первый аргумент media(): min, max или within, получено `#{$minmax}`';
+  }
+}

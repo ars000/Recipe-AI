@@ -1,0 +1,22 @@
+@use "../../../../styles/breakpoints" as *;
+
+.page-home {
+  &__actions {
+    display: flex;
+    gap: rem(12px);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: rem(20px);
+  }
+
+  &__empty-hint {
+    text-align: center;
+    color: var(--text-muted);
+  }
+}
+
+:host ::ng-deep .page-home__btn--on-hero.btn--outline {
+  background: var(--white-alpha-08);
+  border-color: var(--white-alpha-85) !important;
+  color: var(--on-dark) !important;
+}

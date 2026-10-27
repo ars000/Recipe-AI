@@ -1,0 +1,26 @@
+<header
+  class="page-hero"
+  [class.page-hero--large]="size() === 'large'"
+  [class.page-hero--cover]="!!coverImage()"
+  [style.--page-hero-cover]="coverImage() ? 'url(' + coverImage() + ')' : null"
+>
+  <div class="page-container">
+    @if (breadcrumbs().length) {
+      <nav class="page-hero__breadcrumb" aria-label="breadcrumb">
+        @for (crumb of breadcrumbs(); track crumb.label; let last = $last) {
+          @if (crumb.link && !last) {
+            <a [routerLink]="crumb.link">{{ crumb.label }}</a>
+            <span class="page-hero__breadcrumb-sep">/</span>
+          } @else {
+            <span>{{ crumb.label }}</span>
+          }
+        }
+      </nav>
+    }
+    <h1>{{ heading() }}</h1>
+    @if (subtitle()) {
+      <p>{{ subtitle() }}</p>
+    }
+    <ng-content />
+  </div>
+</header>

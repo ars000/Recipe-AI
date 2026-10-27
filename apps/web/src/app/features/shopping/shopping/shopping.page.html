@@ -1,0 +1,154 @@
+<app-page-hero
+  heading="Список покупок"
+  subtitle="Недостающие продукты по рецептам и ваши позиции"
+  [breadcrumbs]="[
+    { label: 'Главная', link: '/' },
+    { label: 'Покупки' },
+  ]"
+/>
+
+<div class="page-container">
+  <div class="section-head shopping-toolbar no-print">
+    <h2>Ваш список</h2>
+    <div class="shopping-toolbar__actions">
+      <button
+        type="button"
+        class="btn btn--outline"
+        (click)="printList()"
+        [disabled]="!hasAnyItems()"
+      >
+        Распечатать / PDF
+      </button>
+      <button
+        type="button"
+        class="btn btn--outline"
+        (click)="shareQr()"
+        [disabled]="shareLoading() || !hasAnyItems()"
+      >
+        QR для телефона
+      </button>
+      <button
+        type="button"
+        class="btn btn--danger"
+        (click)="openClearConfirm()"
+        [disabled]="!hasAnyItems()"
+      >
+        Очистить список
+      </button>
+    </div>
+  </div>
+
+  @if (clearConfirmOpen()) {
+  <div
+    class="shopping-modal no-print"
+    role="dialog"
+    aria-labelledby="clear-list-title"
+  >
+    <div class="shopping-modal__card panel">
+      <h3 id="clear-list-title" class="shopping-modal__title">
+        Очистить список?
+      </h3>
+      <p class="shopping-modal__text">
+        Все позиции будут удалены. Это действие нельзя отменить.
+      </p>
+      <div class="shopping-modal__actions">
+        <button
+          type="button"
+          class="btn btn--outline"
+          (click)="closeClearConfirm()"
+        >
+          Отмена
+        </button>
+        <button
+          type="button"
+          class="btn btn--danger"
+          (click)="confirmClearAll()"
+        >
+          Очистить
+        </button>
+      </div>
+    </div>
+  </div>
+  } @if (qrDataUrl(); as qr) {
+  <div class="shopping-modal no-print" role="dialog" aria-label="QR-код списка">
+    <div class="shopping-modal__card panel">
+      <h3 class="shopping-modal__title">Отсканируйте в магазине</h3>
+      <p class="shopping-modal__text">
+        Ссылка действует 24 часа. На телефоне откроется список без входа.
+      </p>
+      <img
+        class="shopping-qr__img"
+        [src]="qr"
+        width="240"
+        height="240"
+        alt="QR-код списка покупок"
+      />
+      @if (shareUrl(); as link) {
+      <p class="shopping-qr__link">{{ link }}</p>
+      }
+      <button type="button" class="btn btn--accent" (click)="closeQr()">
+        Закрыть
+      </button>
+    </div>
+  </div>
+  }
+
+  <div class="shopping-print-header print-only">
+    <h1>Список покупок</h1>
+    <p>{{ list()?.name }}</p>
+  </div>
+
+  <div class="panel shopping-list">
+    @if (loadError()) {
+    <p class="shopping-list__empty">
+      Не удалось загрузить список. Проверьте, что API запущен, и обновите
+      страницу.
+    </p>
+    } @else { @if (list(); as l) { @if (!l.items.length) {
+    <p class="shopping-list__empty">
+      Список пуст. Добавьте недостающее из карточки рецепта.
+    </p>
+    } @for (item of l.items; track item.id) {
+    <div class="shopping-list__row">
+      <span
+        class="shopping-list__print-box print-only"
+        aria-hidden="true"
+      ></span>
+      <div class="shopping-list__main">
+        <span class="shopping-list__name"
+          >{{ item.customName || item.ingredient?.nameRu }}</span
+        >
+        @if (item.sources.length) {
+        <div class="shopping-list__recipes no-print">
+          <span class="shopping-list__recipes-label">Рецепты:</span>
+          @for (src of item.sources; track src.id) { @if (src.recipe) {
+          <a
+            class="shopping-list__recipe-link"
+            [routerLink]="['/recipes', src.recipe.id]"
+          >
+            {{ src.recipe.title }}
+          </a>
+          } }
+        </div>
+        }
+      </div>
+      <span class="shopping-list__qty">{{ itemQuantity(item) }}</span>
+      <button
+        type="button"
+        class="shopping-list__delete no-print"
+        (click)="removeItem(item.id)"
+        aria-label="Удалить из списка"
+      >
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+          />
+        </svg>
+      </button>
+    </div>
+    } } @else {
+    <p class="shopping-list__empty">Загрузка списка…</p>
+    } }
+  </div>
+</div>

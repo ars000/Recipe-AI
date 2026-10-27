@@ -1,0 +1,111 @@
+/**
+ * Оливковое масло (дубли), салатный микс, томатный сок → бакалея.
+ * node apps/api/prisma/seeds/reclassify-user-batch-16.mjs
+ */
+import { createRequire } from 'module';
+import { readFileSync, writeFileSync } from 'fs';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
+import { PrismaClient } from '@prisma/client';
+
+const require = createRequire(import.meta.url);
+const { normalizeIngredientDisplayName } = require('@recipe-manager/shared');
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ingredientsPath = join(__dirname, 'ingredients.json');
+const recipesPath = join(__dirname, 'recipes.seed.json');
+
+const MERGE_SLUGS = {
+  'maslo-oliv': 'maslo-olivkovoe',
+  'olivkovoe-maslo-extra-virgin': 'maslo-olivkovoe',
+  'salatnaya-smes-po-zhelaniyu': 'salatnyy-miks',
+};
+
+const CATEGORY_BY_SLUG = {
+  'tomatnyy-sok': 'бакалея',
+  'maslo-olivkovoe': 'бакалея',
+};
+
+function addAlias(catalog, targetSlug, phrase) {
+  const ing = catalog.find((x) => x.slug === targetSlug);
+  if (!ing || !phrase) return;
+  const key = phrase.toLowerCase().trim();
+  const existing = new Set([ing.nameRu, ...(ing.aliases ?? [])].map((a) => a.toLowerCase().trim()));
+  if (existing.has(key)) return;
+  ing.aliases = [...(ing.aliases ?? []), phrase];
+}
+
+const catalog = JSON.parse(readFileSync(ingredientsPath, 'utf8'));
+const recipes = JSON.parse(readFileSync(recipesPath, 'utf8'));
+const bySlug = new Map(catalog.map((x) => [x.slug, x]));
+
+for (const ing of catalog) {
+  ing.nameRu = normalizeIngredientDisplayName(ing.nameRu);
+}
+
+for (const [slug, category] of Object.entries(CATEGORY_BY_SLUG)) {
+  const ing = bySlug.get(slug);
+  if (ing) ing.category = category;
+}
+
+for (const [from, to] of Object.entries(MERGE_SLUGS)) {
+  const src = bySlug.get(from);
+  if (src) addAlias(catalog, to, src.nameRu);
+}
+
+let recipeMerged = 0;
+for (const recipe of recipes) {
+  for (const ri of recipe.ingredients ?? []) {
+    const merged = MERGE_SLUGS[ri.slug];
+    if (merged) {
+      ri.slug = merged;
+      recipeMerged++;
+    }
+  }
+}
+
+const removeSlugs = new Set(Object.keys(MERGE_SLUGS));
+const before = catalog.length;
+const nextCatalog = catalog.filter((ing) => !removeSlugs.has(ing.slug));
+
+writeFileSync(ingredientsPath, `${JSON.stringify(nextCatalog, null, 2)}\n`, 'utf8');
+writeFileSync(recipesPath, `${JSON.stringify(recipes, null, 2)}\n`, 'utf8');
+
+console.log(
+  [`Catalog: ${before} → ${nextCatalog.length}`, `recipe slug fixes: ${recipeMerged}`].join('\n'),
+);
+
+async function retireSlug(prisma, slug, migrateToSlug) {
+  const retired = await prisma.ingredient.findUnique({ where: { slug } });
+  if (!retired) return;
+  const target = await prisma.ingredient.findUnique({ where: { slug: migrateToSlug } });
+  if (!target) {
+    console.warn('Skip DB retire, target missing:', slug, migrateToSlug);
+    return;
+  }
+  await prisma.pantryItem.updateMany({
+    where: { ingredientId: retired.id },
+    data: { ingredientId: target.id },
+  });
+  await prisma.shoppingListItem.updateMany({
+    where: { ingredientId: retired.id },
+    data: { ingredientId: target.id },
+  });
+  await prisma.recipeIngredient.updateMany({
+    where: { ingredientId: retired.id },
+    data: { ingredientId: target.id },
+  });
+  await prisma.ingredientAlias.deleteMany({ where: { ingredientId: retired.id } });
+  await prisma.ingredient.delete({ where: { id: retired.id } });
+  console.log('DB retired', slug, '→', migrateToSlug);
+}
+
+const prisma = new PrismaClient();
+for (const [from, to] of Object.entries(MERGE_SLUGS)) {
+  await retireSlug(prisma, from, to);
+}
+for (const [slug, category] of Object.entries(CATEGORY_BY_SLUG)) {
+  await prisma.ingredient.updateMany({ where: { slug }, data: { category } });
+}
+await prisma.$disconnect();
+console.log('DB sync done.');

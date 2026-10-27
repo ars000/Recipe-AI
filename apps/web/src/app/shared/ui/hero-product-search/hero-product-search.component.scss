@@ -1,0 +1,141 @@
+@use "../../../../styles/breakpoints" as *;
+
+.hero-search {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: rem(12px);
+  max-width: rem(520px);
+  margin: 0 auto;
+
+  @include media("min", "sm") {
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: rem(640px);
+  }
+
+  &__field {
+    flex: 1;
+    width: 100%;
+
+    --mdc-outlined-text-field-container-shape: #{rem(12px)};
+    --mdc-outlined-text-field-focus-outline-width: #{rem(2px)};
+  }
+
+  &__submit {
+    @include media("min", "sm") {
+      flex-shrink: 0;
+      align-self: stretch;
+      height: auto;
+    }
+  }
+
+  &__selection {
+    margin-top: rem(16px);
+    max-width: rem(640px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__chips-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(8px);
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  &__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(8px);
+    justify-content: center;
+    flex: 1 1 auto;
+    min-width: 0;
+
+    &--collapsed {
+      // ~3 строки чипов (высота чипа + gap между строками)
+      max-height: calc(#{rem(32px)} * 3 + #{rem(8px)} * 2);
+      overflow: hidden;
+    }
+  }
+
+  &__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: rem(6px);
+    padding: rem(4px) rem(6px) rem(4px) rem(10px);
+    background: var(--white-alpha-20);
+    border: 1px solid var(--white-alpha-35);
+    border-radius: 999px;
+    font-size: rem(14px);
+    color: var(--on-dark);
+  }
+
+  &__chip--more {
+    flex-shrink: 0;
+    padding-right: rem(10px);
+    border-style: dashed;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--white-alpha-35);
+    }
+  }
+
+  &__chip-more-count {
+    margin-left: rem(4px);
+  }
+
+  &__chip-remove {
+    width: rem(22px);
+    height: rem(22px);
+    padding: 0;
+    background: var(--white-alpha-22);
+    border: none;
+    border-radius: 50%;
+    font-size: rem(16px);
+    color: var(--on-dark);
+    line-height: 1;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--white-alpha-35);
+    }
+  }
+
+  &__selection-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: rem(12px) rem(20px);
+    margin-top: rem(10px);
+  }
+
+  &__clear {
+    display: block;
+    margin: 0;
+    border: none;
+    background: none;
+    color: var(--surface);
+    font-size: rem(14px);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+:host ::ng-deep .hero-search__field .mat-mdc-text-field-wrapper {
+  background: var(--white-alpha-96);
+  border-radius: rem(12px);
+  overflow: hidden;
+}
+
+:host ::ng-deep .hero-search__field .mdc-notched-outline__leading {
+  border-radius: rem(12px) 0 0 rem(12px) !important;
+}
+
+:host ::ng-deep .hero-search__field .mdc-notched-outline__trailing {
+  border-radius: 0 rem(12px) rem(12px) 0 !important;
+}

@@ -1,0 +1,99 @@
+@use "../../../../styles/breakpoints" as *;
+
+.meal-plan {
+  &__form {
+    display: grid;
+    gap: rem(12px);
+    margin-bottom: rem(24px);
+
+    @include media("min", "md") {
+      grid-template-columns: 2fr 1fr 1fr auto;
+      align-items: start;
+      gap: rem(12px) rem(16px);
+    }
+  }
+
+  &__submit {
+    @include media("min", "md") {
+      align-self: center;
+      margin-top: rem(4px);
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(8px) rem(16px);
+    align-items: baseline;
+    padding: rem(12px) 0;
+    border-bottom: 1px solid var(--border);
+
+    @include media("min", "md") {
+      display: grid;
+      grid-template-columns: rem(112px) rem(104px) minmax(0, 1fr);
+      gap: rem(16px);
+    }
+
+    &--head {
+      display: none;
+
+      padding-top: 0;
+      border-bottom-width: rem(2px);
+      font-size: rem(13px);
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+
+      .meal-plan__meal {
+        color: inherit;
+        font-weight: inherit;
+      }
+
+      @include media("min", "md") {
+        display: grid;
+      }
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__date {
+    flex-shrink: 0;
+    color: var(--text-muted);
+    font-size: rem(14px);
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__meal {
+    flex-shrink: 0;
+    color: var(--accent-dark);
+    font-size: rem(14px);
+    font-weight: 600;
+  }
+
+  &__recipe {
+    flex: 1 1 100%;
+    min-width: 0;
+    color: var(--text);
+    font-weight: 400;
+    line-height: 1.4;
+    text-decoration: none;
+
+    @include media("min", "md") {
+      flex: unset;
+    }
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}

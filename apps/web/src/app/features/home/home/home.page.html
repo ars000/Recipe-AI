@@ -1,0 +1,68 @@
+<app-page-hero
+  size="large"
+  heading="Добро пожаловать в Recipe AI"
+  subtitle="Отметьте продукты в холодильнике — мы подберём рецепты, покажем чего не хватает и предложим идеи от AI."
+>
+  <app-hero-product-search />
+  <div class="page-home__actions">
+    <a mat-flat-button color="primary" class="btn btn--accent" routerLink="/fridge">Все продукты</a>
+    <a mat-stroked-button class="btn btn--outline page-home__btn--on-hero" routerLink="/recipes"
+      >Смотреть рецепты</a
+    >
+  </div>
+</app-page-hero>
+
+<div class="page-container">
+<section class="categories categories--spaced">
+  <div class="section-head">
+    <h2>Категории</h2>
+    <a class="section-head__link" routerLink="/fridge">Все продукты →</a>
+  </div>
+  <div class="category-grid category-grid--home">
+    <a class="category-tile category-tile--products" routerLink="/fridge">
+      <div class="category-tile__copy">
+        <h4>По продуктам</h4>
+        <span>Умный подбор</span>
+      </div>
+    </a>
+    <a class="category-tile category-tile--ai" routerLink="/ai">
+      <div class="category-tile__copy">
+        <h4>AI-шеф</h4>
+        <span>Новые идеи</span>
+      </div>
+    </a>
+    <a class="category-tile category-tile--plan" routerLink="/plan">
+      <div class="category-tile__copy">
+        <h4>Меню</h4>
+        <span>План на неделю</span>
+      </div>
+    </a>
+    <a class="category-tile category-tile--saved" routerLink="/saved">
+      <div class="category-tile__copy">
+        <h4>Избранное</h4>
+        <span>Сохранённые</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <h2>Рекомендуемые рецепты</h2>
+    <a class="section-head__link" routerLink="/recipes">Все рецепты →</a>
+  </div>
+  @if (loading()) {
+    <div class="loader"><mat-spinner /></div>
+  } @else if (!featured().length) {
+    <div class="panel page-home__empty-hint">
+      <p>Добавьте продукты в строке поиска выше — здесь появятся подходящие рецепты.</p>
+    </div>
+  } @else {
+    <div class="recipe-grid">
+      @for (r of featured(); track r.recipeId) {
+        <app-recipe-card [recipe]="toCard(r)" />
+      }
+    </div>
+  }
+</section>
+</div>

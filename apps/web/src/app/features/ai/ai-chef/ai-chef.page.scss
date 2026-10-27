@@ -1,0 +1,30 @@
+@use "../../../../styles/breakpoints" as *;
+
+.ai-chef {
+  &__field ::ng-deep textarea.ai-chef__constraints {
+    resize: none;
+  }
+
+  &__hint {
+    color: var(--text-muted);
+  }
+
+  &__preview {
+    margin-top: rem(24px);
+
+    h3 {
+      margin-top: 0;
+      font-family: var(--font-display);
+    }
+
+    h4 {
+      margin-bottom: rem(8px);
+      font-family: var(--font-display);
+    }
+  }
+
+  &__error {
+    margin-top: rem(16px);
+    color: var(--color-error);
+  }
+}

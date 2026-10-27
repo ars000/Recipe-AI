@@ -1,0 +1,62 @@
+<a class="recipe-card" [routerLink]="['/recipes', recipe().id]">
+  <div class="recipe-card__media">
+    @if (recipe().imageUrl) {
+      <img [src]="recipe().imageUrl!" [alt]="recipe().title" />
+    } @else {
+      <span aria-hidden="true">🍽️</span>
+    }
+    <div class="recipe-card__meta">
+      @if (recipe().minutes) {
+        <span class="recipe-card__pill" matTooltip="Время приготовления">{{
+          recipe().minutesLabel ?? recipe().minutes + ' мин'
+        }}</span>
+      }
+      @if (recipe().level) {
+        <span class="recipe-card__pill" matTooltip="Сложность приготовления">{{ recipe().level }}</span>
+      }
+      @if (recipe().badge) {
+        <span class="recipe-card__pill recipe-card__pill--accent" matTooltip="Все основные продукты есть дома">{{
+          recipe().badge
+        }}</span>
+      }
+      @if (recipe().scorePercent !== undefined) {
+        <span
+          class="recipe-card__pill recipe-card__pill--accent"
+          matTooltip="Процент продуктов, которые уже есть в наличии"
+          >{{ recipe().scorePercent }}%</span
+        >
+      }
+    </div>
+  </div>
+  <div class="recipe-card__body">
+    @if (recipe().tags?.length) {
+      <div class="recipe-card__tags">
+        @for (tag of recipe().tags; track tag) {
+          <span class="recipe-card__tag">{{ tag }}</span>
+        }
+      </div>
+    } @else if (recipe().category) {
+      <div class="recipe-card__category">{{ recipe().category }}</div>
+    }
+    <h3>{{ recipe().title }}</h3>
+    @if (recipe().description) {
+      <p class="recipe-card__excerpt">{{ recipe().description }}</p>
+    }
+    @if (recipe().inPantryProducts?.length) {
+      <p class="recipe-card__products">
+        <span class="recipe-card__products-label">Есть дома:</span>
+        {{ recipe().inPantryProducts!.join(', ') }}
+      </p>
+    }
+    @if (recipe().missingProducts?.length) {
+      <p class="recipe-card__products recipe-card__products--missing">
+        <span class="recipe-card__products-label">Не хватает:</span>
+        {{ recipe().missingProducts!.join(', ') }}
+      </p>
+    } @else if (recipe().inPantryProducts?.length) {
+      <p class="recipe-card__products recipe-card__products--ok">Все основные продукты на месте</p>
+    }
+    <ng-content />
+    <span class="recipe-card__more">Подробнее →</span>
+  </div>
+</a>

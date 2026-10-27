@@ -1,0 +1,64 @@
+<app-page-hero
+  heading="AI-шеф"
+  subtitle="Новый рецепт из продуктов холодильника и ваших ограничений"
+  [breadcrumbs]="[
+    { label: 'Главная', link: '/' },
+    { label: 'AI-шеф' },
+  ]"
+/>
+
+<div class="page-container">
+<div class="panel">
+  <mat-form-field
+    appearance="outline"
+    subscriptSizing="dynamic"
+    class="form-field--outline ai-chef__field"
+  >
+    <mat-label>Ограничения</mat-label>
+    <textarea
+      matInput
+      class="ai-chef__constraints"
+      rows="3"
+      [(ngModel)]="constraints"
+      placeholder="вегетарианское, без духовки, до 30 минут..."
+    ></textarea>
+  </mat-form-field>
+  <p class="ai-chef__hint">
+    Учитываем {{ pantry.effectivePantryIds().size }} продуктов из холодильника.
+  </p>
+  <button
+    mat-flat-button
+    color="primary"
+    class="btn btn--accent"
+    (click)="generate()"
+    [disabled]="loading()"
+  >
+    Сгенерировать рецепт
+  </button>
+  @if (loading()) {
+  <div class="loader"><mat-spinner diameter="36" /></div>
+  } @if (error()) {
+  <p class="ai-chef__error">{{ error() }}</p>
+  } @if (result(); as g) {
+  <div class="ai-chef__preview panel">
+    <h3>{{ g.title }}</h3>
+    <p>{{ g.description }}</p>
+    <h4>Ингредиенты</h4>
+    <ul>
+      @for (ing of g.ingredients; track ing.name) {
+      <li>{{ ing.name }} {{ ing.amount }} {{ ing.unit }}</li>
+      }
+    </ul>
+    <h4>Шаги</h4>
+    <ol>
+      @for (step of g.steps; track $index) {
+      <li>{{ step }}</li>
+      }
+    </ol>
+    <button mat-stroked-button class="btn btn--outline" (click)="save()">
+      Сохранить в базу
+    </button>
+  </div>
+  }
+</div>
+</div>

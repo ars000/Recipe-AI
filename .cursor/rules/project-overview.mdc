@@ -1,0 +1,12 @@
+---
+description: Monorepo recipe-manager — структура и общие принципы
+alwaysApply: true
+---
+
+# Обзор проекта
+
+- **Monorepo (npm workspaces):** `apps/web` (Angular 18), `apps/api` (NestJS + Prisma), `libs/shared` (общая TS-логика).
+- **Запуск:** корень — `npm run web`, `npm run api`, `npm run build`; shared-тесты — `npm run test:shared`.
+- **Минимальный diff:** не менять несвязанный код; повторять паттерны соседних файлов в той же папке.
+- **Shared-типы и доменная логика** (теги, матчинг рецептов) — в `@recipe-manager/shared`, не дублировать в web/api.
+- **UI web:** см. правила `angular-web` и `scss-ui`; детали стилей — `apps/web/README.md`.

@@ -1,0 +1,98 @@
+@use "./rem" as *;
+
+// Sass-токены (для Material и других @use-модулей)
+$white: #fff;
+$text: #1a1a1a;
+$text-muted: #6b7280;
+$bg: #faf8f5;
+$surface: $white;
+$border: #ece8e1;
+$accent-50: #fff8ed;
+$accent-100: #ffe9c5;
+$accent-200: #ffd48a;
+$accent-300: #fcbf4f;
+$accent-400: #fcb025;
+$accent-500: #fca30c;
+$accent-600: #e89200;
+$accent-700: #c47a00;
+$accent-800: #9f6200;
+$accent-900: #7a4b00;
+$accent-soft: #fff4e0;
+$accent-gradient-start: #fde68a;
+$stone-500: #78716c;
+$stone-800: #292524;
+$stone-900: #1c1917;
+$footer-text: #d6d3d1;
+$color-error: #b42318;
+$color-missing: #c2410c;
+
+// RGB-каналы для прозрачностей: rgb(var(--ink-rgb) / N%)
+$ink-rgb: 28 25 23;
+
+:root {
+  --white: #{$white};
+  --text: #{$text};
+  --text-muted: #{$text-muted};
+  --bg: #{$bg};
+  --surface: #{$surface};
+  --border: #{$border};
+  --accent: #{$accent-500};
+  --accent-dark: #{$accent-600};
+  --accent-soft: #{$accent-soft};
+  --accent-gradient-start: #{$accent-gradient-start};
+  --accent-50: #{$accent-50};
+  --accent-100: #{$accent-100};
+  --accent-200: #{$accent-200};
+  --accent-300: #{$accent-300};
+  --accent-400: #{$accent-400};
+  --accent-500: #{$accent-500};
+  --accent-600: #{$accent-600};
+  --accent-700: #{$accent-700};
+  --accent-800: #{$accent-800};
+  --accent-900: #{$accent-900};
+  --stone-500: #{$stone-500};
+  --stone-800: #{$stone-800};
+  --stone-900: #{$stone-900};
+  --footer-bg: #{$stone-900};
+  --footer-text: #{$footer-text};
+  --color-error: #{$color-error};
+  --color-missing: #{$color-missing};
+  --ink-rgb: #{$ink-rgb};
+  --on-dark: #{$white};
+  --on-dark-muted: rgb(var(--ink-rgb) / 88%);
+  --hero-overlay: rgb(var(--ink-rgb) / 55%);
+  --category-banner-gradient: linear-gradient(
+    rgb(var(--ink-rgb) / 55%),
+    rgb(var(--ink-rgb) / 72%)
+  );
+  --category-tile-fade-light: linear-gradient(
+    180deg,
+    rgb(var(--ink-rgb) / 5%) 0%,
+    rgb(var(--ink-rgb) / 82%) 100%
+  );
+  --category-tile-fade-photo: linear-gradient(
+    180deg,
+    rgb(var(--ink-rgb) / 8%) 0%,
+    rgb(var(--ink-rgb) / 78%) 100%
+  );
+  --category-tile-neutral-bg: linear-gradient(
+    160deg,
+    var(--stone-500) 0%,
+    var(--stone-800) 100%
+  );
+  --white-alpha-08: rgb(255 255 255 / 8%);
+  --white-alpha-20: rgb(255 255 255 / 20%);
+  --white-alpha-22: rgb(255 255 255 / 22%);
+  --white-alpha-35: rgb(255 255 255 / 35%);
+  --white-alpha-85: rgb(255 255 255 / 85%);
+  --white-alpha-88: rgb(255 255 255 / 88%);
+  --white-alpha-95: rgb(255 255 255 / 95%);
+  --white-alpha-96: rgb(255 255 255 / 96%);
+  --shadow-card: 0 #{rem(8px)} #{rem(30px)} rgb(var(--ink-rgb) / 8%);
+  --shadow-card-hover: 0 #{rem(14px)} #{rem(40px)} rgb(var(--ink-rgb) / 12%);
+  --shadow-tile-hover: 0 #{rem(16px)} #{rem(36px)} rgb(var(--ink-rgb) / 18%);
+  --radius: #{rem(12px)};
+  --radius-sm: #{rem(8px)};
+  --font-display: "Playfair Display", georgia, serif;
+  --font-body: "Jost", "Segoe UI", sans-serif;
+}

@@ -1,0 +1,12 @@
+---
+description: Общая библиотека @recipe-manager/shared
+globs: libs/shared/**/*
+alwaysApply: false
+---
+
+# libs/shared
+
+- Чистый TypeScript без Angular/Nest; экспорт через `libs/shared/src/index.ts`.
+- Домен: типы (`types.ts`), `match-recipes`, `infer-recipe-tags`, `recipe-difficulty`.
+- Тесты Vitest рядом: `*.spec.ts`; после изменений — `npm run test:shared`.
+- Новую логику, нужную и web, и api, добавлять сюда; web-only UI — в `apps/web/src/app/shared/`.
