@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" role="img" aria-label="Recipe AI">
+  <rect width="32" height="32" rx="7" fill="#18181b"/>
+  <g transform="translate(16 17.25)">
+    <ellipse cx="0" cy="0.75" rx="6.75" ry="5.25" fill="#fca30c"/>
+    <ellipse cx="0" cy="1.25" rx="4.35" ry="3.35" fill="#18181b" opacity="0.32"/>
+    <path
+      d="M6.35 -2.15 L11.25 -6.35"
+      stroke="#fca30c"
+      stroke-width="2.25"
+      stroke-linecap="round"
+    />
+    <circle cx="-1.5" cy="0.5" r="1.15" fill="#fde68a"/>
+  </g>
+  <circle cx="25.5" cy="7.25" r="1.15" fill="#fca30c"/>
+  <circle cx="27.25" cy="9.75" r="0.85" fill="#fca30c" opacity="0.92"/>
+  <circle cx="24.25" cy="10.25" r="0.75" fill="#fca30c" opacity="0.78"/>
+</svg>
