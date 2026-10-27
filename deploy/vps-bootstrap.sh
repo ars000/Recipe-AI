@@ -79,6 +79,11 @@ echo "==> systemd recipe-api"
 install -m 644 "$APP_ROOT/deploy/recipe-api.service.example" /etc/systemd/system/recipe-api.service
 sed -i "s|/var/www/recipe-ai/app|${APP_ROOT}|g" /etc/systemd/system/recipe-api.service
 systemctl daemon-reload
+chown www-data:www-data "$ENV_FILE"
+chmod 640 "$ENV_FILE"
+mkdir -p "$APP_ROOT/apps/api/uploads"
+chown -R www-data:www-data "$APP_ROOT/apps/api/uploads"
+
 systemctl enable recipe-api
 systemctl restart recipe-api
 
