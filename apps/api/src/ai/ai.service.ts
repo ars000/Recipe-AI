@@ -23,16 +23,30 @@ export interface GenerateRecipeInput {
 /** OpenRouter: в `models` не больше 3 id. */
 const OPENROUTER_MODELS_FALLBACK_MAX = 3;
 
-/** Бесплатные vision-модели (разные провайдеры). */
+/** Только бесплатные id OpenRouter (`:free` или роутер `openrouter/free`). */
+const DEFAULT_TEXT_MODEL = 'openrouter/free';
+
+/** Бесплатные vision-модели (актуальный каталог OpenRouter). */
 const DEFAULT_VISION_MODELS = [
-  'thinkingmachines/inkling:free',
-  'google/gemma-4-31b-it:free',
   'nvidia/nemotron-3.5-super-vl:free',
+  'google/gemma-4-31b-it:free',
+  'thinkingmachines/inkling:free',
 ] as const;
 
 @Injectable()
 export class AiService {
   constructor(private readonly config: ConfigService) {}
+
+  /** Только бесплатные варианты OpenRouter (см. openrouter.ai/docs …/free). */
+  private resolveOpenRouterTextModel(): string {
+    const raw = this.config.get<string>('AI_MODEL')?.trim();
+    const model = raw || DEFAULT_TEXT_MODEL;
+    if (model === 'openrouter/free') return model;
+    if (model.endsWith(':free')) return model;
+    throw new BadRequestException(
+      'AI_MODEL должен быть бесплатным: openrouter/free или id с суффиксом :free',
+    );
+  }
 
   private getApiConfig() {
     const provider = this.config.get<string>('AI_PROVIDER') ?? 'openrouter';
@@ -51,9 +65,7 @@ export class AiService {
     return {
       url: 'https://openrouter.ai/api/v1/chat/completions',
       key,
-      model:
-        this.config.get<string>('AI_MODEL') ??
-        'minimax/minimax-m3.1-flash',
+      model: this.resolveOpenRouterTextModel(),
     };
   }
 
@@ -76,7 +88,13 @@ export class AiService {
         .map((s) => s.trim())
         .filter(Boolean) ?? [];
     const models = list.length ? list : [...DEFAULT_VISION_MODELS];
-    return models.slice(0, OPENROUTER_MODELS_FALLBACK_MAX);
+    const freeOnly = models.map((id) => {
+      if (id === 'openrouter/free' || id.endsWith(':free')) return id;
+      throw new BadRequestException(
+        `AI_VISION_MODEL: только бесплатные id (:free), получено «${id}»`,
+      );
+    });
+    return freeOnly.slice(0, OPENROUTER_MODELS_FALLBACK_MAX);
   }
 
   private openRouterHeaders(url: string, key: string): Record<string, string> {
@@ -292,7 +310,7 @@ export class AiService {
     let sawTimeout = false;
 
     const provider = {
-      allow_fallbacks: true,
+      allow_fallbacks: false,
       sort: { by: 'latency', partition: 'none' },
     };
     /** JSON-first; при обрезке ответа — повтор с большим лимитом токенов. */
