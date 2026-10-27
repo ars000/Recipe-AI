@@ -20,8 +20,8 @@ export interface GenerateRecipeInput {
   locale?: string;
 }
 
-/** Сколько free vision-моделей OpenRouter пробовать по очереди. */
-const OPENROUTER_VISION_MODELS_MAX = 5;
+/** OpenRouter: не больше 3 id в `models`; у нас — по одной модели за запрос, но лимит списка тот же. */
+const OPENROUTER_VISION_MODELS_MAX = 3;
 
 /** Groq Free: vision + JSON (console.groq.com/docs/vision). */
 const DEFAULT_GROQ_VISION_MODEL = 'qwen/qwen3.8-27b';
@@ -34,9 +34,32 @@ const DEFAULT_VISION_MODELS = [
   'nvidia/nemotron-3.5-super-vl:free',
   'google/gemma-4-31b-it:free',
   'thinkingmachines/inkling:free',
-  'thinkingmachines/inkling-small:free',
-  'google/gemma-4-26b-a4b-it:free',
 ] as const;
+
+type GroqVisionResult =
+  | { ok: true; data: unknown }
+  | { ok: false; rateLimited: boolean; lastStatus: number; lastBody: string };
+
+type OrVisionFail = {
+  ok: false;
+  rateLimited: boolean;
+  lastStatus: number;
+  lastBody: string;
+  lastFinishReason: string;
+  sawTimeout: boolean;
+};
+
+function isGroqVisionFail(
+  r: GroqVisionResult,
+): r is Extract<GroqVisionResult, { ok: false }> {
+  return r.ok === false;
+}
+
+function isOrVisionFail(
+  r: { ok: boolean },
+): r is OrVisionFail {
+  return r.ok === false;
+}
 
 @Injectable()
 export class AiService {
@@ -116,7 +139,10 @@ export class AiService {
 
   /** openrouter → groq (если есть ключ), groq — только Groq, openrouter — только OR. */
   private getVisionProviderMode(): 'auto' | 'openrouter' | 'groq' {
-    const raw = this.config.get<string>('AI_VISION_PROVIDER')?.trim().toLowerCase();
+    const raw = this.config
+      .get<string>('AI_VISION_PROVIDER')
+      ?.trim()
+      .toLowerCase();
     if (raw === 'groq' || raw === 'openrouter') return raw;
     return 'auto';
   }
@@ -195,11 +221,13 @@ export class AiService {
   }
 
   private visionHttpErrorMessage(status: number, body: string): string | null {
-    if (this.isVisionTimeoutError(status, body)) return this.visionTimeoutMessage();
+    if (this.isVisionTimeoutError(status, body))
+      return this.visionTimeoutMessage();
     try {
       const data = JSON.parse(body) as { error?: { message?: string } };
       const msg = data.error?.message ?? '';
-      if (this.isVisionTimeoutError(status, msg)) return this.visionTimeoutMessage();
+      if (this.isVisionTimeoutError(status, msg))
+        return this.visionTimeoutMessage();
       if (msg) return msg;
     } catch {
       /* ignore */
@@ -212,7 +240,9 @@ export class AiService {
     const record = message as Record<string, unknown>;
     const refusal = record['refusal'];
     if (typeof refusal === 'string' && refusal.trim()) {
-      throw new BadRequestException(`Модель отказалась анализировать фото: ${refusal}`);
+      throw new BadRequestException(
+        `Модель отказалась анализировать фото: ${refusal}`,
+      );
     }
     const content = record['content'];
     if (typeof content === 'string') return content.trim();
@@ -221,7 +251,8 @@ export class AiService {
         .map((part) => {
           if (!part || typeof part !== 'object') return '';
           const p = part as Record<string, unknown>;
-          if (p['type'] === 'text' && typeof p['text'] === 'string') return p['text'];
+          if (p['type'] === 'text' && typeof p['text'] === 'string')
+            return p['text'];
           return '';
         })
         .filter(Boolean)
@@ -345,7 +376,11 @@ export class AiService {
     try {
       res = await fetch(url, {
         method: 'POST',
-        headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json', ...headers },
+        headers: {
+          Authorization: `Bearer ${key}`,
+          'Content-Type': 'application/json',
+          ...headers,
+        },
         body: JSON.stringify(body),
         signal: AbortSignal.timeout(VISION_FETCH_TIMEOUT_MS),
       });
@@ -385,10 +420,7 @@ export class AiService {
 
   private async chatVisionOpenRouter(
     messages: ReturnType<AiService['buildVisionMessages']>,
-  ): Promise<
-    | { ok: true; data: unknown }
-    | { ok: false; rateLimited: boolean; lastStatus: number; lastBody: string; lastFinishReason: string; sawTimeout: boolean }
-  > {
+  ): Promise<{ ok: true; data: unknown } | OrVisionFail> {
     const url = 'https://openrouter.ai/api/v1/chat/completions';
     const key = this.getOpenRouterKey();
     const models = this.getVisionModels();
@@ -427,14 +459,14 @@ export class AiService {
           continue;
         }
         if (result.parsed !== null) {
-          return { ok: true, data: result.parsed };
+          return { ok: true as const, data: result.parsed };
         }
         if (!result.timedOut && result.status >= 400) break;
       }
     }
 
     return {
-      ok: false,
+      ok: false as const,
       rateLimited: saw429,
       lastStatus,
       lastBody,
@@ -445,13 +477,15 @@ export class AiService {
 
   private async chatVisionGroq(
     messages: ReturnType<AiService['buildVisionMessages']>,
-  ): Promise<
-    | { ok: true; data: unknown }
-    | { ok: false; rateLimited: boolean; lastStatus: number; lastBody: string }
-  > {
+  ): Promise<GroqVisionResult> {
     const key = this.getGroqKey();
     if (!key) {
-      return { ok: false, rateLimited: false, lastStatus: 0, lastBody: '' };
+      return {
+        ok: false as const,
+        rateLimited: false,
+        lastStatus: 0,
+        lastBody: '',
+      };
     }
     const url = 'https://api.groq.com/openai/v1/chat/completions';
     const model = this.getGroqVisionModel();
@@ -460,13 +494,18 @@ export class AiService {
     let saw429 = false;
 
     for (const maxTokens of [2048, 4096]) {
-      const result = await this.postVisionChat(url, key, {}, {
-        model,
-        messages,
-        temperature: 0.2,
-        max_completion_tokens: maxTokens,
-        response_format: { type: 'json_object' },
-      });
+      const result = await this.postVisionChat(
+        url,
+        key,
+        {},
+        {
+          model,
+          messages,
+          temperature: 0.2,
+          max_completion_tokens: maxTokens,
+          response_format: { type: 'json_object' },
+        },
+      );
       lastStatus = result.status;
       lastBody = result.body;
       if (result.status === 429) {
@@ -474,11 +513,16 @@ export class AiService {
         continue;
       }
       if (result.parsed !== null) {
-        return { ok: true, data: result.parsed };
+        return { ok: true as const, data: result.parsed };
       }
     }
 
-    return { ok: false, rateLimited: saw429, lastStatus, lastBody };
+    return {
+      ok: false as const,
+      rateLimited: saw429,
+      lastStatus,
+      lastBody,
+    };
   }
 
   private async chatVisionJson(
@@ -495,8 +539,10 @@ export class AiService {
 
     if (tryGroqFirst && this.getGroqKey()) {
       const groq = await this.chatVisionGroq(messages);
-      if (groq.ok) return groq.data;
-      if (groq.rateLimited && mode === 'groq') {
+      if (groq.ok) {
+        return groq.data;
+      }
+      if (isGroqVisionFail(groq) && mode === 'groq' && groq.rateLimited) {
         throw new HttpException(
           this.visionRateLimitMessage(),
           HttpStatus.TOO_MANY_REQUESTS,
@@ -504,19 +550,26 @@ export class AiService {
       }
     }
 
-    let orFail:
-      | Awaited<ReturnType<AiService['chatVisionOpenRouter']>>
-      | null = null;
+    let orFail: OrVisionFail | null = null;
     if (tryOpenRouter) {
       const or = await this.chatVisionOpenRouter(messages);
-      if (or.ok) return or.data;
-      orFail = or;
+      if (or.ok) {
+        return or.data;
+      }
+      if (isOrVisionFail(or)) {
+        orFail = or;
+      }
     }
 
     if (tryGroqFallback && this.getGroqKey() && mode !== 'groq') {
       const groq = await this.chatVisionGroq(messages);
-      if (groq.ok) return groq.data;
-      if (groq.rateLimited || orFail?.rateLimited) {
+      if (groq.ok) {
+        return groq.data;
+      }
+      if (
+        (isGroqVisionFail(groq) && groq.rateLimited) ||
+        orFail?.rateLimited
+      ) {
         throw new HttpException(
           this.visionRateLimitMessage(),
           HttpStatus.TOO_MANY_REQUESTS,
