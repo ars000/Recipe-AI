@@ -20,8 +20,11 @@ export interface GenerateRecipeInput {
   locale?: string;
 }
 
-/** OpenRouter: в `models` не больше 3 id. */
-const OPENROUTER_MODELS_FALLBACK_MAX = 3;
+/** Сколько free vision-моделей OpenRouter пробовать по очереди. */
+const OPENROUTER_VISION_MODELS_MAX = 5;
+
+/** Groq Free: vision + JSON (console.groq.com/docs/vision). */
+const DEFAULT_GROQ_VISION_MODEL = 'qwen/qwen3.8-27b';
 
 /** Только бесплатные id OpenRouter (`:free` или роутер `openrouter/free`). */
 const DEFAULT_TEXT_MODEL = 'openrouter/free';
@@ -31,6 +34,8 @@ const DEFAULT_VISION_MODELS = [
   'nvidia/nemotron-3.5-super-vl:free',
   'google/gemma-4-31b-it:free',
   'thinkingmachines/inkling:free',
+  'thinkingmachines/inkling-small:free',
+  'google/gemma-4-26b-a4b-it:free',
 ] as const;
 
 @Injectable()
@@ -94,7 +99,26 @@ export class AiService {
         `AI_VISION_MODEL: только бесплатные id (:free), получено «${id}»`,
       );
     });
-    return freeOnly.slice(0, OPENROUTER_MODELS_FALLBACK_MAX);
+    return freeOnly.slice(0, OPENROUTER_VISION_MODELS_MAX);
+  }
+
+  private getGroqKey(): string | null {
+    const key = this.config.get<string>('GROQ_API_KEY')?.trim();
+    return key || null;
+  }
+
+  private getGroqVisionModel(): string {
+    return (
+      this.config.get<string>('AI_VISION_GROQ_MODEL')?.trim() ||
+      DEFAULT_GROQ_VISION_MODEL
+    );
+  }
+
+  /** openrouter → groq (если есть ключ), groq — только Groq, openrouter — только OR. */
+  private getVisionProviderMode(): 'auto' | 'openrouter' | 'groq' {
+    const raw = this.config.get<string>('AI_VISION_PROVIDER')?.trim().toLowerCase();
+    if (raw === 'groq' || raw === 'openrouter') return raw;
+    return 'auto';
   }
 
   private openRouterHeaders(url: string, key: string): Record<string, string> {
@@ -142,10 +166,13 @@ export class AiService {
   }
 
   private visionRateLimitMessage(): string {
+    const groqHint = this.getGroqKey()
+      ? ''
+      : ' Либо добавьте бесплатный GROQ_API_KEY (console.groq.com) — включится запасной vision.';
     return (
-      'Исчерпан лимит бесплатных vision-запросов OpenRouter (обычно ~50 в день без пополнения баланса, ~20 в минуту). ' +
-      'Подождите или пополните аккаунт OpenRouter (от ~10 credits — выше дневной лимит). ' +
-      'Либо задайте AI_VISION_MODEL одной моделью в apps/api/.env.'
+      'Исчерпан лимит бесплатного распознавания фото (OpenRouter и/или Groq). ' +
+      'Подождите 15–60 минут или до следующего дня.' +
+      groqHint
     );
   }
 
@@ -282,15 +309,12 @@ export class AiService {
     }
   }
 
-  private async chatVisionJson(
+  private buildVisionMessages(
     system: string,
     userText: string,
     imageDataUrl: string,
-  ): Promise<unknown> {
-    const url = 'https://openrouter.ai/api/v1/chat/completions';
-    const key = this.getOpenRouterKey();
-    const models = this.getVisionModels();
-    const messages = [
+  ) {
+    return [
       { role: 'system', content: system },
       {
         role: 'user',
@@ -303,82 +327,212 @@ export class AiService {
         ],
       },
     ];
+  }
+
+  private async postVisionChat(
+    url: string,
+    key: string,
+    headers: Record<string, string>,
+    body: Record<string, unknown>,
+  ): Promise<{
+    status: number;
+    body: string;
+    parsed: unknown | null;
+    finishReason: string;
+    timedOut: boolean;
+  }> {
+    let res: Response;
+    try {
+      res = await fetch(url, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json', ...headers },
+        body: JSON.stringify(body),
+        signal: AbortSignal.timeout(VISION_FETCH_TIMEOUT_MS),
+      });
+    } catch (err) {
+      if (err instanceof Error && err.name === 'TimeoutError') {
+        return {
+          status: 504,
+          body: '',
+          parsed: null,
+          finishReason: 'timeout',
+          timedOut: true,
+        };
+      }
+      throw err;
+    }
+    const text = await res.text();
+    let finishReason = 'unknown';
+    if (res.ok) {
+      try {
+        const peek = JSON.parse(text) as {
+          choices?: Array<{ finish_reason?: string }>;
+        };
+        finishReason = peek.choices?.[0]?.finish_reason ?? finishReason;
+      } catch {
+        /* ignore */
+      }
+    }
+    const parsed = res.ok ? this.tryParseVisionCompletionBody(text) : null;
+    return {
+      status: res.status,
+      body: text,
+      parsed,
+      finishReason,
+      timedOut: this.isVisionTimeoutError(res.status, text),
+    };
+  }
+
+  private async chatVisionOpenRouter(
+    messages: ReturnType<AiService['buildVisionMessages']>,
+  ): Promise<
+    | { ok: true; data: unknown }
+    | { ok: false; rateLimited: boolean; lastStatus: number; lastBody: string; lastFinishReason: string; sawTimeout: boolean }
+  > {
+    const url = 'https://openrouter.ai/api/v1/chat/completions';
+    const key = this.getOpenRouterKey();
+    const models = this.getVisionModels();
+    const provider = {
+      allow_fallbacks: false,
+      sort: { by: 'latency', partition: 'none' },
+    };
 
     let lastStatus = 0;
     let lastBody = '';
     let lastFinishReason = 'unknown';
     let sawTimeout = false;
+    let saw429 = false;
 
-    const provider = {
-      allow_fallbacks: false,
-      sort: { by: 'latency', partition: 'none' },
-    };
-    /** JSON-first; при обрезке ответа — повтор с большим лимитом токенов. */
-    const requestVariants: Array<Record<string, unknown>> = [
-      {
-        models,
-        messages,
-        temperature: 0.2,
-        max_tokens: 2048,
-        response_format: { type: 'json_object' },
-        provider,
-      },
-      {
-        models,
-        messages,
-        temperature: 0.2,
-        max_tokens: 4096,
-        response_format: { type: 'json_object' },
-        provider,
-      },
-    ];
-
-    for (const body of requestVariants) {
-      let res: Response;
-      try {
-        res = await fetch(url, {
-          method: 'POST',
-          headers: this.openRouterHeaders(url, key),
-          body: JSON.stringify(body),
-          signal: AbortSignal.timeout(VISION_FETCH_TIMEOUT_MS),
-        });
-      } catch (err) {
-        if (err instanceof Error && err.name === 'TimeoutError') {
-          sawTimeout = true;
-          break;
+    for (const model of models) {
+      for (const maxTokens of [2048, 4096]) {
+        const result = await this.postVisionChat(
+          url,
+          key,
+          this.openRouterHeaders(url, key),
+          {
+            model,
+            messages,
+            temperature: 0.2,
+            max_tokens: maxTokens,
+            response_format: { type: 'json_object' },
+            provider,
+          },
+        );
+        lastStatus = result.status;
+        lastBody = result.body;
+        lastFinishReason = result.finishReason;
+        if (result.timedOut) sawTimeout = true;
+        if (result.status === 429) {
+          saw429 = true;
+          continue;
         }
-        throw err;
+        if (result.parsed !== null) {
+          return { ok: true, data: result.parsed };
+        }
+        if (!result.timedOut && result.status >= 400) break;
       }
+    }
 
-      lastStatus = res.status;
-      lastBody = await res.text();
+    return {
+      ok: false,
+      rateLimited: saw429,
+      lastStatus,
+      lastBody,
+      lastFinishReason,
+      sawTimeout,
+    };
+  }
 
-      if (res.status === 429) {
+  private async chatVisionGroq(
+    messages: ReturnType<AiService['buildVisionMessages']>,
+  ): Promise<
+    | { ok: true; data: unknown }
+    | { ok: false; rateLimited: boolean; lastStatus: number; lastBody: string }
+  > {
+    const key = this.getGroqKey();
+    if (!key) {
+      return { ok: false, rateLimited: false, lastStatus: 0, lastBody: '' };
+    }
+    const url = 'https://api.groq.com/openai/v1/chat/completions';
+    const model = this.getGroqVisionModel();
+    let lastStatus = 0;
+    let lastBody = '';
+    let saw429 = false;
+
+    for (const maxTokens of [2048, 4096]) {
+      const result = await this.postVisionChat(url, key, {}, {
+        model,
+        messages,
+        temperature: 0.2,
+        max_completion_tokens: maxTokens,
+        response_format: { type: 'json_object' },
+      });
+      lastStatus = result.status;
+      lastBody = result.body;
+      if (result.status === 429) {
+        saw429 = true;
+        continue;
+      }
+      if (result.parsed !== null) {
+        return { ok: true, data: result.parsed };
+      }
+    }
+
+    return { ok: false, rateLimited: saw429, lastStatus, lastBody };
+  }
+
+  private async chatVisionJson(
+    system: string,
+    userText: string,
+    imageDataUrl: string,
+  ): Promise<unknown> {
+    const messages = this.buildVisionMessages(system, userText, imageDataUrl);
+    const mode = this.getVisionProviderMode();
+
+    const tryGroqFirst = mode === 'groq';
+    const tryOpenRouter = mode !== 'groq';
+    const tryGroqFallback = mode === 'auto' || mode === 'groq';
+
+    if (tryGroqFirst && this.getGroqKey()) {
+      const groq = await this.chatVisionGroq(messages);
+      if (groq.ok) return groq.data;
+      if (groq.rateLimited && mode === 'groq') {
         throw new HttpException(
           this.visionRateLimitMessage(),
           HttpStatus.TOO_MANY_REQUESTS,
         );
       }
-
-      if (!res.ok) {
-        if (this.isVisionTimeoutError(res.status, lastBody)) {
-          sawTimeout = true;
-        }
-        break;
-      }
-
-      try {
-        const peek = JSON.parse(lastBody) as {
-          choices?: Array<{ finish_reason?: string }>;
-        };
-        lastFinishReason = peek.choices?.[0]?.finish_reason ?? lastFinishReason;
-      } catch {
-        /* ignore */
-      }
-
-      const parsed = this.tryParseVisionCompletionBody(lastBody);
-      if (parsed !== null) return parsed;
     }
+
+    let orFail:
+      | Awaited<ReturnType<AiService['chatVisionOpenRouter']>>
+      | null = null;
+    if (tryOpenRouter) {
+      const or = await this.chatVisionOpenRouter(messages);
+      if (or.ok) return or.data;
+      orFail = or;
+    }
+
+    if (tryGroqFallback && this.getGroqKey() && mode !== 'groq') {
+      const groq = await this.chatVisionGroq(messages);
+      if (groq.ok) return groq.data;
+      if (groq.rateLimited || orFail?.rateLimited) {
+        throw new HttpException(
+          this.visionRateLimitMessage(),
+          HttpStatus.TOO_MANY_REQUESTS,
+        );
+      }
+    } else if (orFail?.rateLimited) {
+      throw new HttpException(
+        this.visionRateLimitMessage(),
+        HttpStatus.TOO_MANY_REQUESTS,
+      );
+    }
+
+    const lastStatus = orFail?.lastStatus ?? 0;
+    const lastBody = orFail?.lastBody ?? '';
+    const lastFinishReason = orFail?.lastFinishReason ?? 'unknown';
+    const sawTimeout = orFail?.sawTimeout ?? false;
 
     if (sawTimeout) {
       throw new HttpException(
@@ -391,8 +545,8 @@ export class AiService {
     if (lastStatus >= 200 && lastStatus < 300) {
       const hint =
         lastFinishReason === 'length'
-          ? 'Ответ модели обрезался по лимиту длины — попробуйте фото с меньшим числом предметов или укажите AI_VISION_MODEL.'
-          : 'Попробуйте другое фото или задайте AI_VISION_MODEL в .env.';
+          ? 'Ответ модели обрезался — попробуйте фото с меньшим числом предметов.'
+          : 'Попробуйте другое фото.';
       throw new BadRequestException(
         `Модель не вернула список продуктов (${lastFinishReason}). ${hint}`,
       );
