@@ -53,7 +53,7 @@ export class AiService {
       key,
       model:
         this.config.get<string>('AI_MODEL') ??
-        'minimax/minimax-m3.1-flash:free',
+        'minimax/minimax-m3.1-flash',
     };
   }
 
