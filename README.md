@@ -88,9 +88,11 @@ sudo systemctl enable --now recipe-api
 
 ### 6. Обновления
 
+Разработка в **feature-ветках**; на [recipe.ars000.ru](https://recipe.ars000.ru) выкатывайте после merge в **`main`**:
+
 ```bash
 cd /var/www/recipe-ai/app
-git pull
+git pull origin main
 ./deploy/vps-deploy.sh
 sudo systemctl restart recipe-api
 ```
